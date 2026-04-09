@@ -1,170 +1,848 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kilian Kräftner CV</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
-html{scroll-behavior:smooth}
-body{background:#0b0b0b;color:#f2f2f2}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilian Kräftner CV</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Inter, Arial, sans-serif;
+    }
 
-/* FRAME */
-.wrapper{max-width:1100px;margin:auto;padding:20px}
+    body {
+      background: linear-gradient(180deg, #050505, #101010);
+      color: #f5f5f5;
+      line-height: 1.5;
+      transition: all 0.35s ease;
+      padding: clamp(14px, 2vw, 28px);
+      min-height: 100vh;
+    }
 
-/* NAV */
-nav{position:sticky;top:0;z-index:999;background:#0b0b0bf2;border-bottom:1px solid #222;padding:14px 20px;border-radius:20px;display:flex;align-items:center;justify-content:space-between}
+    body.light {
+      background: #dddddd;
+      color: #111;
+    }
 
-.logo{font-weight:800;font-size:22px}
+        .page-frame {
+      width: 100%;
+      max-width: 100%;
+      min-height: calc(100vh - clamp(28px, 4vw, 56px));
+      margin: auto;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 42px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.45);
+      overflow: visible;
+    }
 
-.nav-center{display:flex;gap:28px;justify-content:center;flex:1}
+    body.light .page-frame {
+      background: #f7f7f7;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.16);
+      border: 1px solid rgba(0,0,0,0.10);
+    }
 
-.nav-center a{color:#aaa;text-decoration:none;font-size:15px}
-.nav-center a:hover{color:#e3a04f}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: rgba(7,7,7,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-top-left-radius: 42px;
+      border-top-right-radius: 42px;
+    }
 
-.nav-right{display:flex;gap:10px}
+    body.light nav {
+      background: rgba(247,247,247,0.96);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
 
-button{background:#e3a04f;border:none;padding:8px 14px;border-radius:12px;font-weight:600;cursor:pointer}
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+    }
 
-/* MOBILE MENU */
-.mobile-btn{display:none}
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+    }
 
-@media(max-width:800px){
-nav{flex-direction:column;gap:10px}
-.nav-center{display:none;flex-direction:column;width:100%;background:#111;padding:10px;border-radius:14px}
-nav.open .nav-center{display:flex}
-.mobile-btn{display:block}
-}
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 16px;
+      opacity: 0.78;
+      transition: 0.3s;
+      font-weight: 500;
+    }
 
-/* SECTIONS */
-section{padding:70px 10px;scroll-margin-top:100px}
+    .nav-links a:hover {
+      color: #e3a04f;
+      opacity: 1;
+    }
 
-h1{font-size:48px;margin-bottom:10px}
-h2{font-size:30px;margin-bottom:30px}
+    .buttons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-self: end;
+    }
 
-.subtitle{color:#bbb;margin-bottom:8px}
-.location{color:#777}
+    button {
+      background: #e3a04f;
+      color: black;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 20px rgba(227,160,79,0.25);
+    }
 
-/* CARDS */
-.card{background:#121212;border:1px solid #222;border-radius:20px;padding:20px;margin-bottom:20px}
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(227,160,79,0.35);
+    }
 
-.card h3{margin-bottom:6px}
+    section {
+      scroll-margin-top: 170px;
+      min-height: auto;
+      padding: 90px 9%;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      animation: fadeIn 0.8s ease;
+    }
 
-.meta{color:#aaa;font-size:14px;margin-bottom:10px}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-ul{padding-left:18px}
+    h1 {
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
 
-/* GRID */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:800px){.grid{grid-template-columns:1fr}}
+    h2 {
+      font-size: 42px;
+      margin-bottom: 45px;
+      font-weight: 800;
+    }
 
-/* SKILLS */
-.skills{display:flex;flex-wrap:wrap;gap:10px}
-.skill{background:#181818;border:1px solid #333;padding:6px 12px;border-radius:20px;font-size:13px}
+        .subtitle {
+      font-size: 28px;
+      color: #d7d7d7;
+      margin-bottom: 14px;
+    }
 
-/* COLLAPSE MOBILE */
-@media(max-width:800px){
-.details summary{cursor:pointer}
-.details ul{display:none}
-.details.open ul{display:block}
-}
+    body.light .subtitle {
+      color: #4a4a4a;
+      font-weight: 500;
+    }
 
-</style>
+    body.light .location {
+      color: #5c5c5c;
+      opacity: 1;
+    }
+
+    .location {
+      font-size: 20px;
+      opacity: 0.7;
+    }
+
+    .timeline-item details {
+        width: 100%;
+      }
+
+          .timeline-item,
+      .project-card,
+    .contact-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 24px;
+      margin-bottom: 22px;
+      transition: all 0.35s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .timeline-item:hover,
+    .project-card:hover,
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(227,160,79,0.45);
+    }
+
+    body.light .timeline-item,
+    body.light .project-card,
+    body.light .contact-card {
+      background: #fcfcfc;
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .timeline-item h3,
+    .project-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      color: #e3a04f;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 14px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 16px;
+      opacity: 0.88;
+    }
+
+    .skills-layout,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+    }
+
+    .skill-group h3 {
+      color: #e3a04f;
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .skills-grid {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .skill {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 15px;
+      color:#d0d0d0;
+    }
+
+    body.light .skill {
+      background: #ebebeb;
+      border: 1px solid #c8c8c8;
+      color: #3f3f3f;
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .contact-card p {
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: inherit;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    body.light input,
+    body.light textarea {
+      border: 1px solid rgba(0,0,0,0.14);
+      background: #ffffff;
+      color: #222;
+    }
+
+    body.light input::placeholder,
+    body.light textarea::placeholder {
+      color: #666;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    @media(max-width: 900px) {
+      nav {
+        display: flex;
+      }
+
+      section {
+        scroll-margin-top: 220px;
+      }
+
+      body {
+        padding: 10px;
+      }
+
+      .page-frame {
+        border-radius: 26px;
+        min-height: calc(100vh - 20px);
+      }
+
+      nav {
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px;
+        position: sticky;
+        top: 0;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        background: rgba(0,0,0,0.25);
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      nav.mobile-open .nav-links {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block !important;
+      }
+
+      .buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      h1 { font-size: 38px; }
+      h2 { font-size: 28px; }
+
+      .skills-layout,
+      .contact-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item,
+      .project-card,
+      .contact-card {
+        padding: 16px;
+        border-radius: 24px;
+      }
+
+      .timeline-item h3,
+      .project-card h3 {
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .timeline-item p,
+      .timeline-item li {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .timeline-item p[style] {
+        float: none !important;
+        margin-top: 10px !important;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .skill {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .mobile-collapsible summary::after {
+        content: '+';
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        font-size: 28px;
+        font-weight: 300;
+        color: #e3a04f;
+        line-height: 1;
+      }
+
+      .mobile-collapsible[open] summary::after {
+        content: '−';
+      }
+
+      .mobile-collapsible:not([open]) ul {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="wrapper">
-
+<div class="page-frame">
 <nav>
-<div class="logo">CV</div>
+  <div class="logo">CV</div>
 
-<div class="nav-center">
-<a href="#exp">Erfahrung</a>
-<a href="#skills">Fähigkeiten</a>
-<a href="#projects">Projekte</a>
-<a href="#contact">Kontakt</a>
-</div>
+  <div class="nav-links">
+    <a href="#experience">Berufserfahrung / Ausbildung</a>
+    <a href="#skills">Fähigkeiten</a>
+    <a href="#projects">Projekte</a>
+    <a href="#contact">Kontakt</a>
+  </div>
 
-<div class="nav-right">
-<button class="mobile-btn" onclick="toggleMenu()">☰</button>
-<button onclick="toggleLang()">DE/EN</button>
-<button onclick="toggleTheme()">🌙</button>
-</div>
+  <div class="buttons">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display:none;">☰ Menü</button>
+    <button id="langToggle" onclick="toggleLanguage()">DE / EN</button>
+    <button onclick="toggleTheme()">🌙</button>
+    <button onclick="window.print()">PDF</button>
+  </div>
 </nav>
 
-<section>
-<h1>Kilian Kräftner</h1>
-<div class="subtitle">Mechatroniker</div>
-<div class="location">Schwarzenbach, Österreich</div>
+<section id="home">
+  <h1>Kilian Kräftner</h1>
+  <div class="subtitle">Mechatroniker</div>
+  <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
 </section>
 
-<section id="exp">
-<h2>Berufserfahrung / Ausbildung</h2>
+<section id="experience">
+  <h2>Berufserfahrung / Ausbildung</h2>
 
-<div class="card details" onclick="toggleCard(this)">
-<h3>Produktionsplaner</h3>
-<div class="meta">MELECS EWS GmbH · 03.2026 - Heute</div>
-<ul>
-<li>Zeitverwaltung und Dokumentation</li>
-<li>ESD Beauftragter</li>
-<li>Evaluierung</li>
-</ul>
-</div>
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Produktionsplaner</h3>
+        <p class="highlight">Siemens / MELECS EWS GmbH</p>
+        <p>MELECS EWS GmbH</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">03.2026 - Heute</p>
+      </summary>
+      <ul>
+      <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
+      <li>ESD-Beauftragter</li>
+      <li>Evaluierungs-Beauftragter</li>
+      <li>Unterstützung der Fertigungsabläufe</li>
+    </ul>
+    </details>
+  </div>
 
-<div class="card details" onclick="toggleCard(this)">
-<h3>Lehre — Mechatroniker</h3>
-<div class="meta">Siemens · 2022 - 2026</div>
-<ul>
-<li>SMD Löten</li>
-<li>PCB Design</li>
-<li>Automotive Elektronik</li>
-</ul>
-</div>
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Lehre — Mechatroniker</h3>
+        <p class="highlight">Siemens / MELECS EWS GmbH</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - 2026</p>
+      </summary>
+      <ul>
+        <li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
+        <li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li>
+        <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
+        <li>Begleitende Berufsreifeprüfung (BRP)</li>
+      </ul>
+    </details>
+  </div>
 
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Berufsreifeprüfung (Matura)</h3>
+        <p class="highlight">WIFI Niederösterreich</p>
+        <p>Niederösterreich, Österreich</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - Juni 2026</p>
+      </summary>
+      <ul>
+        <li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li>
+        <li>Lehre mit Matura - begleitend zur Berufsausbildung</li>
+        <li>Aktuell im Abschluss</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Lehrabschluss — Mechatroniker-Automatisierungstechniker</h3>
+        <p class="highlight">Siemens / MELECS EWS GmbH</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - 2026</p>
+      </summary>
+      <ul>
+        <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
+        <li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>HTL — Polytechnische Schule (Informatik)</h3>
+        <p class="highlight">HTL Wiener Neustadt</p>
+        <p>Wiener Neustadt, Österreich</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2021 - 2022</p>
+      </summary>
+      <ul>
+        <li>Schwerpunkt Informatik (Information Technology)</li>
+        <li>Grundlagen in Informatik und Programmierung</li>
+        <li>Technische Ingenieurausbildung</li>
+      </ul>
+    </details>
+  </div>
 </section>
 
 <section id="skills">
-<h2>Fähigkeiten</h2>
-<div class="grid">
-<div>
-<h3>Technisch</h3>
-<div class="skills">
-<div class="skill">JavaScript</div>
-<div class="skill">React</div>
-<div class="skill">Node</div>
-</div>
-</div>
+  <h2>Fähigkeiten</h2>
+  <div class="skills-layout">
+    <div class="skill-group">
+      <h3>Technisch</h3>
+      <div class="skills-grid">
+        <div class="skill">JavaScript</div>
+        <div class="skill">TypeScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">PostgreSQL</div>
+        <div class="skill">AWS</div>
+        <div class="skill">Docker</div>
+      </div>
 
-<div>
-<h3>Sprachen</h3>
-<div class="skills">
-<div class="skill">Deutsch</div>
-<div class="skill">Englisch</div>
-</div>
-</div>
-</div>
+      <h3 style="margin-top:34px;">Sprachen</h3>
+      <div class="skills-grid">
+        <div class="skill">Deutsch (Muttersprache)</div>
+        <div class="skill">Englisch (Fließend)</div>
+        <div class="skill">Französisch (Mittelstufe)</div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Werkzeuge</h3>
+      <div class="skills-grid">
+        <div class="skill">Git</div>
+        <div class="skill">Docker</div>
+        <div class="skill">Kubernetes</div>
+        <div class="skill">Jenkins</div>
+        <div class="skill">VS Code</div>
+        <div class="skill">Jira</div>
+      </div>
+
+      <h3 style="margin-top:34px;">Soft Skills</h3>
+      <div class="skills-grid">
+        <div class="skill">Führung</div>
+        <div class="skill">Kommunikation</div>
+        <div class="skill">Problemlösung</div>
+        <div class="skill">Teamzusammenarbeit</div>
+        <div class="skill">Projektmanagement</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="projects">
-<h2>Projekte</h2>
-<div class="card"><h3>PCB Design</h3><p>Platinen erstellt</p></div>
+  <h2>Projekte</h2>
+  <div class="projects-grid">
+    <div class="project-card"><h3>Elektronikfertigung</h3><p>Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.</p></div>
+    <div class="project-card"><h3>PCB Design</h3><p>Erstellung und Fertigung von Platinen mit EasyEDA.</p></div>
+    <div class="project-card"><h3>Automatisierung</h3><p>Praxis in industrieller Automatisierungstechnik.</p></div>
+  </div>
 </section>
 
 <section id="contact">
-<h2>Kontakt</h2>
-<div class="card">
-<p>Email: kiliankraftner@gmail.com</p>
-</div>
-</section>
+  <h2>Kontakt</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <p>Email: <a href="mailto:kiliankraftner@gmail.com" style="color:#e3a04f; text-decoration:none;">kiliankraftner@gmail.com</a></p>
+      <p>Telefon: <a href="tel:06641271974" style="color:#e3a04f; text-decoration:none;">0664 1271974</a></p>
+      
+      <p><a href="https://github.com/Kiliankr-cloud" target="_blank" style="color:#e3a04f; text-decoration:none; display:inline-flex; align-items:center; gap:10px; font-weight:600; font-size:1.05rem;">
+        <svg height="22" width="22" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8a8.01 8.01 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        GitHub
+      </a></p>
+    </div>
 
+    <div class="contact-card">
+      <form id="contactForm">
+        <input name="name" placeholder="Ihr Name" required>
+        <input name="email" type="email" placeholder="Ihre E-Mail" required>
+        <textarea name="message" placeholder="Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+      </form>
+      <div id="successPopup" style="display:none; margin-top:18px; padding:16px; border-radius:18px; border:2px solid #32c766; color:#32c766; font-weight:bold; text-align:center; opacity:0; transform:translateY(10px) scale(0.96); transition:all 0.6s ease;">
+        ✅ Message sent
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 
 <script>
-function toggleMenu(){document.querySelector('nav').classList.toggle('open')}
-function toggleCard(el){if(window.innerWidth<800){el.classList.toggle('open')}}
-function toggleTheme(){document.body.classList.toggle('light')}
-function toggleLang(){alert('Language toggle placeholder')}
-</script>
 
+function toggleMobileMenu() {
+  document.querySelector('nav').classList.toggle('mobile-open');
+}
+
+function toggleTheme() {
+  document.body.classList.toggle('light');
+}
+
+let currentLanguage = 'de';
+
+const translations = {
+  de: {
+    nav1: 'Berufserfahrung / Ausbildung',
+    nav2: 'Fähigkeiten',
+    nav3: 'Projekte',
+    nav4: 'Kontakt',
+    subtitle: 'Mechatroniker',
+    location: 'Schwarzenbach, Niederösterreich, Österreich',
+    experienceTitle: 'Berufserfahrung / Ausbildung',
+    skillsTitle: 'Fähigkeiten',
+    projectsTitle: 'Projekte',
+    contactTitle: 'Kontakt',
+    contactBtn: 'Senden',
+    success: '✅ Nachricht gesendet',
+
+    technical: 'Technisch',
+    languages: 'Sprachen',
+    tools: 'Werkzeuge',
+    softskills: 'Soft Skills',
+
+    skillLang1: 'Deutsch (Muttersprache)',
+    skillLang2: 'Englisch (Fließend)',
+    skillLang3: 'Französisch (Mittelstufe)',
+
+    soft1: 'Führung',
+    soft2: 'Kommunikation',
+    soft3: 'Problemlösung',
+    soft4: 'Teamzusammenarbeit',
+    soft5: 'Projektmanagement',
+
+    exp1Title: 'Produktionsplaner',
+    exp2Title: 'Lehre — Mechatroniker',
+    exp3Title: 'Berufsreifeprüfung (Matura)',
+    exp4Title: 'Lehrabschluss — Mechatroniker-Automatisierungstechniker',
+    exp5Title: 'HTL — Polytechnische Schule (Informatik)',
+
+    project1Title: 'Elektronikfertigung',
+    project2Title: 'PCB Design',
+    project3Title: 'Automatisierung',
+
+    project1: 'Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.',
+    project2: 'Erstellung und Fertigung von Platinen mit EasyEDA.',
+    project3: 'Praxis in industrieller Automatisierungstechnik.'
+  },
+  en: {
+    nav1: 'Work Experience / Education',
+    nav2: 'Skills',
+    nav3: 'Projects',
+    nav4: 'Contact',
+    subtitle: 'Mechatronics Engineer',
+    location: 'Schwarzenbach, Lower Austria, Austria',
+    experienceTitle: 'Work Experience / Education',
+    skillsTitle: 'Skills',
+    projectsTitle: 'Projects',
+    contactTitle: 'Contact',
+    contactBtn: 'Send',
+    success: '✅ Message sent',
+
+    technical: 'Technical',
+    languages: 'Languages',
+    tools: 'Tools',
+    softskills: 'Soft Skills',
+
+    skillLang1: 'German (Native)',
+    skillLang2: 'English (Fluent)',
+    skillLang3: 'French (Intermediate)',
+
+    soft1: 'Leadership',
+    soft2: 'Communication',
+    soft3: 'Problem Solving',
+    soft4: 'Team Collaboration',
+    soft5: 'Project Management',
+
+    exp1Title: 'Production Planner',
+    exp2Title: 'Apprenticeship — Mechatronics Engineer',
+    exp3Title: 'Vocational Diploma (Matura)',
+    exp4Title: 'Graduation — Mechatronics Automation Engineer',
+    exp5Title: 'Technical School — Computer Science',
+
+    project1Title: 'Electronics Manufacturing',
+    project2Title: 'PCB Design',
+    project3Title: 'Automation',
+
+    project1: 'Hands-on work with SMD components and circuit boards.',
+    project2: 'Design and manufacturing of PCBs with EasyEDA.',
+    project3: 'Practical experience in industrial automation.'
+  }
+};
+
+function applyLanguage(lang) {
+  document.querySelectorAll('.nav-links a')[0].textContent = translations[lang].nav1;
+  document.querySelectorAll('.nav-links a')[1].textContent = translations[lang].nav2;
+  document.querySelectorAll('.nav-links a')[2].textContent = translations[lang].nav3;
+  document.querySelectorAll('.nav-links a')[3].textContent = translations[lang].nav4;
+
+  document.querySelector('.subtitle').textContent = translations[lang].subtitle;
+  document.querySelector('.location').textContent = translations[lang].location;
+
+  document.querySelectorAll('h2')[0].textContent = translations[lang].experienceTitle;
+  document.querySelectorAll('h2')[1].textContent = translations[lang].skillsTitle;
+  document.querySelectorAll('h2')[2].textContent = translations[lang].projectsTitle;
+  document.querySelectorAll('h2')[3].textContent = translations[lang].contactTitle;
+
+  document.querySelectorAll('.skill-group h3')[0].textContent = translations[lang].technical;
+  document.querySelectorAll('.skill-group h3')[1].textContent = translations[lang].languages;
+  document.querySelectorAll('.skill-group h3')[2].textContent = translations[lang].tools;
+  document.querySelectorAll('.skill-group h3')[3].textContent = translations[lang].softskills;
+
+  const skills = document.querySelectorAll('#skills .skill');
+  skills[7].textContent = translations[lang].skillLang1;
+  skills[8].textContent = translations[lang].skillLang2;
+  skills[9].textContent = translations[lang].skillLang3;
+  skills[16].textContent = translations[lang].soft1;
+  skills[17].textContent = translations[lang].soft2;
+  skills[18].textContent = translations[lang].soft3;
+  skills[19].textContent = translations[lang].soft4;
+  skills[20].textContent = translations[lang].soft5;
+
+  const timelineTitles = document.querySelectorAll('.timeline-item h3');
+  timelineTitles[0].textContent = translations[lang].exp1Title;
+  timelineTitles[1].textContent = translations[lang].exp2Title;
+  timelineTitles[2].textContent = translations[lang].exp3Title;
+  timelineTitles[3].textContent = translations[lang].exp4Title;
+  timelineTitles[4].textContent = translations[lang].exp5Title;
+
+  const timelineLists = document.querySelectorAll('.timeline-item ul');
+
+  timelineLists[0].innerHTML = lang === 'de'
+    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li><li>ESD-Beauftragter</li><li>Evaluierungs-Beauftragter</li><li>Unterstützung der Fertigungsabläufe</li>`
+    : `<li>Time management and documentation of manufacturing processes</li><li>ESD officer</li><li>Evaluation supervisor</li><li>Support of production workflows</li>`;
+
+  timelineLists[1].innerHTML = lang === 'de'
+    ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li><li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li><li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Begleitende Berufsreifeprüfung (BRP)</li>`
+    : `<li>Soldering and rework of SMD components (0402 to 1206, ICs, capacitors)</li><li>PCB design and manufacturing (EasyEDA Pro, PCBWay)</li><li>Specialized training in automotive electronics manufacturing</li><li>Parallel vocational diploma program</li>`;
+
+  timelineLists[2].innerHTML = lang === 'de'
+    ? `<li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li><li>Lehre mit Matura - begleitend zur Berufsausbildung</li><li>Aktuell im Abschluss</li>`
+    : `<li>Subjects: Electrical engineering, German, English and mathematics</li><li>Apprenticeship with diploma alongside vocational training</li><li>Currently nearing completion</li>`;
+
+  timelineLists[3].innerHTML = lang === 'de'
+    ? `<li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>`
+    : `<li>Specialized training in automotive electronics manufacturing</li><li>Practical experience in industrial automation and electronics</li>`;
+
+  timelineLists[4].innerHTML = lang === 'de'
+    ? `<li>Schwerpunkt Informatik (Information Technology)</li><li>Grundlagen in Informatik und Programmierung</li><li>Technische Ingenieurausbildung</li>`
+    : `<li>Focus on computer science and information technology</li><li>Fundamentals of programming and informatics</li><li>Technical engineering education</li>`;
+
+  document.querySelectorAll('#projects .project-card h3')[0].textContent = translations[lang].project1Title;
+  document.querySelectorAll('#projects .project-card h3')[1].textContent = translations[lang].project2Title;
+  document.querySelectorAll('#projects .project-card h3')[2].textContent = translations[lang].project3Title;
+
+  document.querySelector('#projects .project-card:nth-child(1) p').textContent = translations[lang].project1;
+  document.querySelector('#projects .project-card:nth-child(2) p').textContent = translations[lang].project2;
+  document.querySelector('#projects .project-card:nth-child(3) p').textContent = translations[lang].project3;
+
+  document.querySelector('#contact button[type="submit"]').textContent = translations[lang].contactBtn;
+  document.querySelector('#successPopup').textContent = translations[lang].success;
+}
+
+function toggleLanguage() {
+  currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
+  applyLanguage(currentLanguage);
+}
+
+const form = document.getElementById('contactForm');
+const popup = document.getElementById('successPopup');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  try {
+    await fetch('https://formsubmit.co/ajax/kiliankraftner@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        _subject: `Neue CV Anfrage von ${name}`
+      })
+    });
+
+    popup.style.display = 'block';
+
+    requestAnimationFrame(() => {
+      popup.style.opacity = '1';
+      popup.style.transform = 'translateY(0px) scale(1)';
+    });
+
+    form.reset();
+
+    setTimeout(() => {
+      popup.style.opacity = '0';
+      popup.style.transform = 'translateY(-8px) scale(0.96)';
+
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 600);
+    }, 2600);
+
+  } catch (error) {
+    alert('E-Mail Versand fehlgeschlagen. Bitte später erneut versuchen.');
+    console.error(error);
+  }
+});
+</script>
 </body>
 </html>
