@@ -255,13 +255,51 @@
     @media(max-width: 900px) {
       nav {
         flex-direction: column;
-        gap: 18px;
-        padding: 20px;
+        gap: 14px;
+        padding: 18px;
       }
-      h1 { font-size: 48px; }
-      h2 { font-size: 32px; }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      h1 { font-size: 42px; }
+      h2 { font-size: 30px; }
+
       .skills-layout,
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item p[style] {
+        float: none !important;
+        margin-top: 12px !important;
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .timeline-item,
+      .project-card,
+      .contact-card {
+        padding: 18px;
+      }
+
+      .skill {
+        font-size: 14px;
+        padding: 9px 14px;
+      }
     }
   </style>
 </head>
@@ -554,21 +592,44 @@ function applyLanguage(lang) {
   document.querySelectorAll('.skill-group h3')[2].textContent = translations[lang].tools;
   document.querySelectorAll('.skill-group h3')[3].textContent = translations[lang].softskills;
 
-  document.querySelectorAll('#skills .skill')[7].textContent = translations[lang].skillLang1;
-  document.querySelectorAll('#skills .skill')[8].textContent = translations[lang].skillLang2;
-  document.querySelectorAll('#skills .skill')[9].textContent = translations[lang].skillLang3;
+  const skills = document.querySelectorAll('#skills .skill');
+  skills[7].textContent = translations[lang].skillLang1;
+  skills[8].textContent = translations[lang].skillLang2;
+  skills[9].textContent = translations[lang].skillLang3;
+  skills[16].textContent = translations[lang].soft1;
+  skills[17].textContent = translations[lang].soft2;
+  skills[18].textContent = translations[lang].soft3;
+  skills[19].textContent = translations[lang].soft4;
+  skills[20].textContent = translations[lang].soft5;
 
-  document.querySelectorAll('#skills .skill')[16].textContent = translations[lang].soft1;
-  document.querySelectorAll('#skills .skill')[17].textContent = translations[lang].soft2;
-  document.querySelectorAll('#skills .skill')[18].textContent = translations[lang].soft3;
-  document.querySelectorAll('#skills .skill')[19].textContent = translations[lang].soft4;
-  document.querySelectorAll('#skills .skill')[20].textContent = translations[lang].soft5;
+  const timelineTitles = document.querySelectorAll('.timeline-item h3');
+  timelineTitles[0].textContent = translations[lang].exp1Title;
+  timelineTitles[1].textContent = translations[lang].exp2Title;
+  timelineTitles[2].textContent = translations[lang].exp3Title;
+  timelineTitles[3].textContent = translations[lang].exp4Title;
+  timelineTitles[4].textContent = translations[lang].exp5Title;
 
-  document.querySelectorAll('.timeline-item h3')[0].textContent = translations[lang].exp1Title;
-  document.querySelectorAll('.timeline-item h3')[1].textContent = translations[lang].exp2Title;
-  document.querySelectorAll('.timeline-item h3')[2].textContent = translations[lang].exp3Title;
-  document.querySelectorAll('.timeline-item h3')[3].textContent = translations[lang].exp4Title;
-  document.querySelectorAll('.timeline-item h3')[4].textContent = translations[lang].exp5Title;
+  const timelineLists = document.querySelectorAll('.timeline-item ul');
+
+  timelineLists[0].innerHTML = lang === 'de'
+    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li><li>ESD-Beauftragter</li><li>Evaluierungs-Beauftragter</li><li>Unterstützung der Fertigungsabläufe</li>`
+    : `<li>Time management and documentation of manufacturing processes</li><li>ESD officer</li><li>Evaluation supervisor</li><li>Support of production workflows</li>`;
+
+  timelineLists[1].innerHTML = lang === 'de'
+    ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li><li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li><li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Begleitende Berufsreifeprüfung (BRP)</li>`
+    : `<li>Soldering and rework of SMD components (0402 to 1206, ICs, capacitors)</li><li>PCB design and manufacturing (EasyEDA Pro, PCBWay)</li><li>Specialized training in automotive electronics manufacturing</li><li>Parallel vocational diploma program</li>`;
+
+  timelineLists[2].innerHTML = lang === 'de'
+    ? `<li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li><li>Lehre mit Matura - begleitend zur Berufsausbildung</li><li>Aktuell im Abschluss</li>`
+    : `<li>Subjects: Electrical engineering, German, English and mathematics</li><li>Apprenticeship with diploma alongside vocational training</li><li>Currently nearing completion</li>`;
+
+  timelineLists[3].innerHTML = lang === 'de'
+    ? `<li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>`
+    : `<li>Specialized training in automotive electronics manufacturing</li><li>Practical experience in industrial automation and electronics</li>`;
+
+  timelineLists[4].innerHTML = lang === 'de'
+    ? `<li>Schwerpunkt Informatik (Information Technology)</li><li>Grundlagen in Informatik und Programmierung</li><li>Technische Ingenieurausbildung</li>`
+    : `<li>Focus on computer science and information technology</li><li>Fundamentals of programming and informatics</li><li>Technical engineering education</li>`;
 
   document.querySelectorAll('#projects .project-card h3')[0].textContent = translations[lang].project1Title;
   document.querySelectorAll('#projects .project-card h3')[1].textContent = translations[lang].project2Title;
