@@ -338,13 +338,13 @@
 
       .mobile-menu-btn {
         display: block !important;
-        width: 100%;
       }
 
       .buttons {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
+        width: 100%;
       }
 
       section {
@@ -392,14 +392,16 @@
       }
 
       .mobile-collapsible summary::after {
-        content: '⌄';
+        content: '+';
         float: right;
-        font-size: 20px;
+        font-size: 28px;
+        font-weight: 300;
         color: #e3a04f;
+        line-height: 1;
       }
 
       .mobile-collapsible[open] summary::after {
-        content: '⌃';
+        content: '−';
       }
 
       .mobile-collapsible:not([open]) ul {
@@ -412,17 +414,17 @@
 <div class="page-frame">
 <nav>
   <div class="logo">CV</div>
+  <div class="buttons">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display:none;">☰ Menü</button>
+    <button id="langToggle" onclick="toggleLanguage()">DE / EN</button>
+    <button onclick="toggleTheme()">🌙</button>
+    <button onclick="window.print()">PDF</button>
+  </div>
   <div class="nav-links">
     <a href="#experience">Berufserfahrung / Ausbildung</a>
     <a href="#skills">Fähigkeiten</a>
     <a href="#projects">Projekte</a>
     <a href="#contact">Kontakt</a>
-  </div>
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display:none;">☰ Menü</button>
-  <div class="buttons">
-    <button id="langToggle" onclick="toggleLanguage()">DE / EN</button>
-    <button onclick="toggleTheme()">🌙</button>
-    <button onclick="window.print()">PDF</button>
   </div>
 </nav>
 
@@ -436,7 +438,7 @@
   <h2>Berufserfahrung / Ausbildung</h2>
 
   <div class="timeline-item">
-    <details class="mobile-collapsible" open>
+    <details class="mobile-collapsible">
       <summary>
         <h3>Produktionsplaner</h3>
         <p class="highlight">Siemens / MELECS EWS GmbH</p>
@@ -453,7 +455,7 @@
   </div>
 
   <div class="timeline-item">
-    <details class="mobile-collapsible" open>
+    <details class="mobile-collapsible">
       <summary>
         <h3>Lehre — Mechatroniker</h3>
         <p class="highlight">Siemens / MELECS EWS GmbH</p>
