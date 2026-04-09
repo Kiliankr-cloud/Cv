@@ -44,13 +44,14 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 9999;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 18px 40px;
-      background: rgba(7,7,7,0.94);
+      background: rgba(7,7,7,0.96);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
@@ -458,6 +459,33 @@ const translations = {
     projectsTitle: 'Projekte',
     contactTitle: 'Kontakt',
     contactBtn: 'Senden',
+    success: '✅ Nachricht gesendet',
+
+    technical: 'Technisch',
+    languages: 'Sprachen',
+    tools: 'Werkzeuge',
+    softskills: 'Soft Skills',
+
+    skillLang1: 'Deutsch (Muttersprache)',
+    skillLang2: 'Englisch (Fließend)',
+    skillLang3: 'Französisch (Mittelstufe)',
+
+    soft1: 'Führung',
+    soft2: 'Kommunikation',
+    soft3: 'Problemlösung',
+    soft4: 'Teamzusammenarbeit',
+    soft5: 'Projektmanagement',
+
+    exp1Title: 'Produktionsplaner',
+    exp2Title: 'Lehre — Mechatroniker',
+    exp3Title: 'Berufsreifeprüfung (Matura)',
+    exp4Title: 'Lehrabschluss — Mechatroniker-Automatisierungstechniker',
+    exp5Title: 'HTL — Polytechnische Schule (Informatik)',
+
+    project1Title: 'Elektronikfertigung',
+    project2Title: 'PCB Design',
+    project3Title: 'Automatisierung',
+
     project1: 'Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.',
     project2: 'Erstellung und Fertigung von Platinen mit EasyEDA.',
     project3: 'Praxis in industrieller Automatisierungstechnik.'
@@ -467,13 +495,40 @@ const translations = {
     nav2: 'Skills',
     nav3: 'Projects',
     nav4: 'Contact',
-    subtitle: 'Mechatronics Technician',
+    subtitle: 'Mechatronics Engineer',
     location: 'Schwarzenbach, Lower Austria, Austria',
     experienceTitle: 'Work Experience / Education',
     skillsTitle: 'Skills',
     projectsTitle: 'Projects',
     contactTitle: 'Contact',
     contactBtn: 'Send',
+    success: '✅ Message sent',
+
+    technical: 'Technical',
+    languages: 'Languages',
+    tools: 'Tools',
+    softskills: 'Soft Skills',
+
+    skillLang1: 'German (Native)',
+    skillLang2: 'English (Fluent)',
+    skillLang3: 'French (Intermediate)',
+
+    soft1: 'Leadership',
+    soft2: 'Communication',
+    soft3: 'Problem Solving',
+    soft4: 'Team Collaboration',
+    soft5: 'Project Management',
+
+    exp1Title: 'Production Planner',
+    exp2Title: 'Apprenticeship — Mechatronics Engineer',
+    exp3Title: 'Vocational Diploma (Matura)',
+    exp4Title: 'Graduation — Mechatronics Automation Engineer',
+    exp5Title: 'Technical School — Computer Science',
+
+    project1Title: 'Electronics Manufacturing',
+    project2Title: 'PCB Design',
+    project3Title: 'Automation',
+
     project1: 'Hands-on work with SMD components and circuit boards.',
     project2: 'Design and manufacturing of PCBs with EasyEDA.',
     project3: 'Practical experience in industrial automation.'
@@ -494,11 +549,37 @@ function applyLanguage(lang) {
   document.querySelectorAll('h2')[2].textContent = translations[lang].projectsTitle;
   document.querySelectorAll('h2')[3].textContent = translations[lang].contactTitle;
 
+  document.querySelectorAll('.skill-group h3')[0].textContent = translations[lang].technical;
+  document.querySelectorAll('.skill-group h3')[1].textContent = translations[lang].languages;
+  document.querySelectorAll('.skill-group h3')[2].textContent = translations[lang].tools;
+  document.querySelectorAll('.skill-group h3')[3].textContent = translations[lang].softskills;
+
+  document.querySelectorAll('#skills .skill')[7].textContent = translations[lang].skillLang1;
+  document.querySelectorAll('#skills .skill')[8].textContent = translations[lang].skillLang2;
+  document.querySelectorAll('#skills .skill')[9].textContent = translations[lang].skillLang3;
+
+  document.querySelectorAll('#skills .skill')[16].textContent = translations[lang].soft1;
+  document.querySelectorAll('#skills .skill')[17].textContent = translations[lang].soft2;
+  document.querySelectorAll('#skills .skill')[18].textContent = translations[lang].soft3;
+  document.querySelectorAll('#skills .skill')[19].textContent = translations[lang].soft4;
+  document.querySelectorAll('#skills .skill')[20].textContent = translations[lang].soft5;
+
+  document.querySelectorAll('.timeline-item h3')[0].textContent = translations[lang].exp1Title;
+  document.querySelectorAll('.timeline-item h3')[1].textContent = translations[lang].exp2Title;
+  document.querySelectorAll('.timeline-item h3')[2].textContent = translations[lang].exp3Title;
+  document.querySelectorAll('.timeline-item h3')[3].textContent = translations[lang].exp4Title;
+  document.querySelectorAll('.timeline-item h3')[4].textContent = translations[lang].exp5Title;
+
+  document.querySelectorAll('#projects .project-card h3')[0].textContent = translations[lang].project1Title;
+  document.querySelectorAll('#projects .project-card h3')[1].textContent = translations[lang].project2Title;
+  document.querySelectorAll('#projects .project-card h3')[2].textContent = translations[lang].project3Title;
+
   document.querySelector('#projects .project-card:nth-child(1) p').textContent = translations[lang].project1;
   document.querySelector('#projects .project-card:nth-child(2) p').textContent = translations[lang].project2;
   document.querySelector('#projects .project-card:nth-child(3) p').textContent = translations[lang].project3;
 
   document.querySelector('#contact button[type="submit"]').textContent = translations[lang].contactBtn;
+  document.querySelector('#successPopup').textContent = translations[lang].success;
 }
 
 function toggleLanguage() {
