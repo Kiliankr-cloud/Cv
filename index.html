@@ -1,124 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kilian Kräftner CV</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      padding: 40px;
-      background: #f4f4f4;
-      color: #222;
-      transition: 0.3s;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
     }
-    .dark {
-      background: #111;
+
+    body {
+      background: #050505;
       color: white;
+      transition: background 0.3s, color 0.3s;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+    body.light {
+      background: #f5f5f5;
+      color: #111;
     }
-    .dark .container {
-      background: #222;
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(5,5,5,0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
     }
+
+    body.light nav {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 18px;
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #e6a354;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+    }
+
     button {
-      margin: 5px;
-      padding: 12px 20px;
+      background: #e6a354;
+      color: black;
       border: none;
-      border-radius: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
       cursor: pointer;
-      background: #0070f3;
-      color: white;
       font-size: 16px;
+      font-weight: bold;
     }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 10% 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
     h1 {
-      font-size: 48px;
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 52px;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    body.light h2 {
+      color: black;
+    }
+
+    .subtitle {
+      font-size: 34px;
+      color: #e6a354;
+      margin-bottom: 20px;
+    }
+
+    .location {
+      font-size: 24px;
+      opacity: 0.8;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      padding: 30px;
+      border-radius: 24px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    body.light .card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    body.light .skill {
+      background: #eee;
+      border: 1px solid #ddd;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-box {
+      font-size: 24px;
+      line-height: 2;
+    }
+
+    @media(max-width: 900px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 54px;
+      }
+
+      h2 {
+        font-size: 38px;
+      }
     }
   </style>
 </head>
-<body id="body">
+<body>
 
-<div class="container">
-  <h1>Kilian Kräftner</h1>
+<nav>
+  <div class="logo">CV</div>
 
-  <button onclick="toggleDarkMode()">Light / Dark Mode</button>
-  <button onclick="switchLanguage()">DE / EN</button>
-  <button onclick="window.print()">Download PDF</button>
-
-  <hr>
-
-  <div id="cv-content">
-    <h2>Adresse</h2>
-    <p>Bitte Adresse einfügen</p>
-
-    <h2>Berufserfahrung / Ausbildung</h2>
-    <p>Bitte Informationen ergänzen</p>
-
-    <h2>Skills</h2>
-    <p>Skill 1, Skill 2, Skill 3</p>
-
-    <h2>Projekte</h2>
-    <p>Projekt 1, Projekt 2</p>
-
-    <h2>Kontakt</h2>
-    <p>Bitte Kontaktdaten ergänzen</p>
+  <div class="nav-links">
+    <a href="#home">Start</a>
+    <a href="#experience">Berufserfahrung</a>
+    <a href="#skills">Fähigkeiten</a>
+    <a href="#projects">Projekte</a>
+    <a href="#contact">Kontakt</a>
   </div>
-</div>
+
+  <div class="buttons">
+    <button onclick="toggleTheme()">🌙 / ☀️</button>
+    <button onclick="window.print()">PDF</button>
+  </div>
+</nav>
+
+<section id="home">
+  <h1>Kilian Kräftner</h1>
+  <div class="subtitle">Mechatroniker</div>
+  <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
+</section>
+
+<section id="experience">
+  <h2>Berufserfahrung / Ausbildung</h2>
+
+  <div class="card">
+    <h3>Produktionsplaner</h3>
+    <p>Siemens / MELECS EWS GmbH</p>
+    <p>März 2026 - Heute</p>
+  </div>
+
+  <div class="card">
+    <h3>Lehre — Mechatroniker</h3>
+    <p>Siemens / MELECS EWS GmbH</p>
+    <p>2022 - 2026</p>
+  </div>
+
+  <div class="card">
+    <h3>HTL — Polytechnische Schule</h3>
+    <p>Wiener Neustadt</p>
+    <p>2021 - 2022</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Fähigkeiten</h2>
+
+  <div class="skills-grid">
+    <div class="skill">Automatisierungstechnik</div>
+    <div class="skill">Elektronik</div>
+    <div class="skill">SMD Löten</div>
+    <div class="skill">Leiterplattendesign</div>
+    <div class="skill">Dokumentation</div>
+    <div class="skill">Teamarbeit</div>
+    <div class="skill">Problemlösung</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projekte</h2>
+
+  <div class="projects">
+    <div class="card">
+      <h3>Elektronikfertigung</h3>
+      <p>Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.</p>
+    </div>
+
+    <div class="card">
+      <h3>PCB Design</h3>
+      <p>Erstellung und Fertigung von Platinen mit EasyEDA.</p>
+    </div>
+
+    <div class="card">
+      <h3>Automatisierung</h3>
+      <p>Praxis in industrieller Automatisierungstechnik.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Kontakt</h2>
+
+  <div class="contact-box">
+    <p>Email: kilian@example.de</p>
+    <p>Telefon: +43 XXX XXX XXX</p>
+    <p>LinkedIn: Dein Profil</p>
+    <p>GitHub: Dein GitHub</p>
+  </div>
+</section>
 
 <script>
-let german = true;
-
-function toggleDarkMode() {
-  document.getElementById("body").classList.toggle("dark");
-}
-
-function switchLanguage() {
-  const content = document.getElementById("cv-content");
-
-  if (german) {
-    content.innerHTML = `
-      <h2>Address</h2>
-      <p>Please add address</p>
-
-      <h2>Work Experience / Education</h2>
-      <p>Please add information</p>
-
-      <h2>Skills</h2>
-      <p>Skill 1, Skill 2, Skill 3</p>
-
-      <h2>Projects</h2>
-      <p>Project 1, Project 2</p>
-
-      <h2>Contact</h2>
-      <p>Please add contact details</p>
-    `;
-  } else {
-    content.innerHTML = `
-      <h2>Adresse</h2>
-      <p>Bitte Adresse einfügen</p>
-
-      <h2>Berufserfahrung / Ausbildung</h2>
-      <p>Bitte Informationen ergänzen</p>
-
-      <h2>Skills</h2>
-      <p>Skill 1, Skill 2, Skill 3</p>
-
-      <h2>Projekte</h2>
-      <p>Projekt 1, Projekt 2</p>
-
-      <h2>Kontakt</h2>
-      <p>Bitte Kontaktdaten ergänzen</p>
-    `;
+  function toggleTheme() {
+    document.body.classList.toggle('light');
   }
-
-  german = !german;
-}
 </script>
 
 </body>
