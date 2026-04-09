@@ -120,7 +120,7 @@
     }
 
     section {
-      scroll-margin-top: 140px;
+      scroll-margin-top: 105px;
       min-height: auto;
       padding: 90px 9%;
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -303,6 +303,16 @@
       display: none;
     }
 
+    @media(min-width: 901px) {
+      .mobile-collapsible summary {
+        pointer-events: none;
+      }
+
+      .mobile-collapsible > *:not(summary) {
+        display: block !important;
+      }
+    }
+
     @media(max-width: 900px) {
       #experience .timeline-item details:not([open]) ul {
         display: none;
@@ -351,6 +361,10 @@
 
       nav.mobile-open .nav-links {
         display: flex;
+      }
+
+      nav.mobile-open {
+        gap: 14px;
       }
 
       .mobile-menu-btn {
@@ -411,12 +425,11 @@
       .mobile-collapsible summary::after {
         content: '+';
         position: absolute;
-        right: 18px;
-        top: 18px;
-        font-size: 28px;
-        font-weight: 300;
+        right: 14px;
+        top: 14px;
+        font-size: 22px;
+        font-weight: 400;
         color: #e3a04f;
-        line-height: 1;
       }
 
       .mobile-collapsible[open] summary::after {
