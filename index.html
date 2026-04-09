@@ -386,14 +386,14 @@
   <h2>Kontakt</h2>
   <div class="contact-grid">
     <div class="contact-card">
-      <p>Email: kiliankraftner@gmail.com</p>
-      <p>Telefon: 0664 1271974</p>
+      <p>Email: <a href="mailto:kiliankraftner@gmail.com" style="color:#e3a04f; text-decoration:none;">kiliankraftner@gmail.com</a></p>
+      <p>Telefon: <a href="tel:06641271974" style="color:#e3a04f; text-decoration:none;">0664 1271974</a></p>
       <p>LinkedIn: Dein Profil</p>
       <p>GitHub: Dein GitHub</p>
     </div>
 
     <div class="contact-card">
-      <form action="https://formsubmit.co/kiliankraftner@gmail.com" method="POST">
+      <form id="contactForm" action="https://formsubmit.co/ajax/kiliankraftner@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="🤖 KI-Kontaktanfrage von deiner CV Website">
         <input type="hidden" name="_captcha" value="false">
         <input name="name" placeholder="Ihr Name" required>
@@ -401,6 +401,9 @@
         <textarea name="message" placeholder="Nachricht" required></textarea>
         <button type="submit">Senden</button>
       </form>
+      <div id="successPopup" style="display:none; margin-top:18px; padding:16px; border-radius:18px; border:2px solid #32c766; color:#32c766; font-weight:bold; text-align:center;">
+        ✅ Message sent
+      </div>
     </div>
   </div>
 </section>
@@ -409,6 +412,28 @@
 function toggleTheme() {
   document.body.classList.toggle('light');
 }
+
+const form = document.getElementById('contactForm');
+const popup = document.getElementById('successPopup');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: formData
+  });
+
+  if(response.ok) {
+    popup.style.display = 'block';
+    form.reset();
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 3000);
+  }
+});
 </script>
 </body>
 </html>
