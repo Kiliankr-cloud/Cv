@@ -275,8 +275,7 @@
     <a href="#contact">Kontakt</a>
   </div>
   <div class="buttons">
-    <button onclick="setLanguage('de')">DE</button>
-    <button onclick="setLanguage('en')">EN</button>
+    <button id="langToggle" onclick="toggleLanguage()">DE / EN</button>
     <button onclick="toggleTheme()">🌙</button>
     <button onclick="window.print()">PDF</button>
   </div>
@@ -444,32 +443,67 @@ function toggleTheme() {
   document.body.classList.toggle('light');
 }
 
-function setLanguage(lang) {
-  const translations = {
-    de: {
-      nav1: 'Berufserfahrung / Ausbildung',
-      nav2: 'Fähigkeiten',
-      nav3: 'Projekte',
-      nav4: 'Kontakt',
-      subtitle: 'Mechatroniker',
-      contactBtn: 'Senden'
-    },
-    en: {
-      nav1: 'Work Experience / Education',
-      nav2: 'Skills',
-      nav3: 'Projects',
-      nav4: 'Contact',
-      subtitle: 'Mechatronics Technician',
-      contactBtn: 'Send'
-    }
-  };
+let currentLanguage = 'de';
 
+const translations = {
+  de: {
+    nav1: 'Berufserfahrung / Ausbildung',
+    nav2: 'Fähigkeiten',
+    nav3: 'Projekte',
+    nav4: 'Kontakt',
+    subtitle: 'Mechatroniker',
+    location: 'Schwarzenbach, Niederösterreich, Österreich',
+    experienceTitle: 'Berufserfahrung / Ausbildung',
+    skillsTitle: 'Fähigkeiten',
+    projectsTitle: 'Projekte',
+    contactTitle: 'Kontakt',
+    contactBtn: 'Senden',
+    project1: 'Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.',
+    project2: 'Erstellung und Fertigung von Platinen mit EasyEDA.',
+    project3: 'Praxis in industrieller Automatisierungstechnik.'
+  },
+  en: {
+    nav1: 'Work Experience / Education',
+    nav2: 'Skills',
+    nav3: 'Projects',
+    nav4: 'Contact',
+    subtitle: 'Mechatronics Technician',
+    location: 'Schwarzenbach, Lower Austria, Austria',
+    experienceTitle: 'Work Experience / Education',
+    skillsTitle: 'Skills',
+    projectsTitle: 'Projects',
+    contactTitle: 'Contact',
+    contactBtn: 'Send',
+    project1: 'Hands-on work with SMD components and circuit boards.',
+    project2: 'Design and manufacturing of PCBs with EasyEDA.',
+    project3: 'Practical experience in industrial automation.'
+  }
+};
+
+function applyLanguage(lang) {
   document.querySelectorAll('.nav-links a')[0].textContent = translations[lang].nav1;
   document.querySelectorAll('.nav-links a')[1].textContent = translations[lang].nav2;
   document.querySelectorAll('.nav-links a')[2].textContent = translations[lang].nav3;
   document.querySelectorAll('.nav-links a')[3].textContent = translations[lang].nav4;
+
   document.querySelector('.subtitle').textContent = translations[lang].subtitle;
+  document.querySelector('.location').textContent = translations[lang].location;
+
+  document.querySelectorAll('h2')[0].textContent = translations[lang].experienceTitle;
+  document.querySelectorAll('h2')[1].textContent = translations[lang].skillsTitle;
+  document.querySelectorAll('h2')[2].textContent = translations[lang].projectsTitle;
+  document.querySelectorAll('h2')[3].textContent = translations[lang].contactTitle;
+
+  document.querySelector('#projects .project-card:nth-child(1) p').textContent = translations[lang].project1;
+  document.querySelector('#projects .project-card:nth-child(2) p').textContent = translations[lang].project2;
+  document.querySelector('#projects .project-card:nth-child(3) p').textContent = translations[lang].project3;
+
   document.querySelector('#contact button[type="submit"]').textContent = translations[lang].contactBtn;
+}
+
+function toggleLanguage() {
+  currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
+  applyLanguage(currentLanguage);
 }
 
 const form = document.getElementById('contactForm');
