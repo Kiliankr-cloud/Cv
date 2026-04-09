@@ -292,6 +292,7 @@
     details summary {
       list-style: none;
       cursor: pointer;
+      position: relative;
     }
 
     details summary::-webkit-details-marker {
@@ -393,7 +394,9 @@
 
       .mobile-collapsible summary::after {
         content: '+';
-        float: right;
+        position: absolute;
+        right: 18px;
+        top: 18px;
         font-size: 28px;
         font-weight: 300;
         color: #e3a04f;
@@ -470,38 +473,49 @@
   </div>
 
   <div class="timeline-item">
-    <h3>Berufsreifeprüfung (Matura)</h3>
-    <p class="highlight">WIFI Niederösterreich</p>
-    <p>Niederösterreich, Österreich</p>
-    <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - Juni 2026</p>
-    <ul>
-      <li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li>
-      <li>Lehre mit Matura - begleitend zur Berufsausbildung</li>
-      <li>Aktuell im Abschluss</li>
-    </ul>
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Berufsreifeprüfung (Matura)</h3>
+        <p class="highlight">WIFI Niederösterreich</p>
+        <p>Niederösterreich, Österreich</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - Juni 2026</p>
+      </summary>
+      <ul>
+        <li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li>
+        <li>Lehre mit Matura - begleitend zur Berufsausbildung</li>
+        <li>Aktuell im Abschluss</li>
+      </ul>
+    </details>
   </div>
 
   <div class="timeline-item">
-    <h3>Lehrabschluss — Mechatroniker-Automatisierungstechniker</h3>
-    <p class="highlight">Siemens / MELECS EWS GmbH</p>
-    
-    <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - 2026</p>
-    <ul>
-      <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
-      <li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>
-    </ul>
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Lehrabschluss — Mechatroniker-Automatisierungstechniker</h3>
+        <p class="highlight">Siemens / MELECS EWS GmbH</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2022 - 2026</p>
+      </summary>
+      <ul>
+        <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
+        <li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>
+      </ul>
+    </details>
   </div>
 
   <div class="timeline-item">
-    <h3>HTL — Polytechnische Schule (Informatik)</h3>
-    <p class="highlight">HTL Wiener Neustadt</p>
-    <p>Wiener Neustadt, Österreich</p>
-    <p style="float:right; margin-top:-70px; opacity:0.7;">2021 - 2022</p>
-    <ul>
-      <li>Schwerpunkt Informatik (Information Technology)</li>
-      <li>Grundlagen in Informatik und Programmierung</li>
-      <li>Technische Ingenieurausbildung</li>
-    </ul>
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>HTL — Polytechnische Schule (Informatik)</h3>
+        <p class="highlight">HTL Wiener Neustadt</p>
+        <p>Wiener Neustadt, Österreich</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">2021 - 2022</p>
+      </summary>
+      <ul>
+        <li>Schwerpunkt Informatik (Information Technology)</li>
+        <li>Grundlagen in Informatik und Programmierung</li>
+        <li>Technische Ingenieurausbildung</li>
+      </ul>
+    </details>
   </div>
 </section>
 
