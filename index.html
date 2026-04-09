@@ -389,7 +389,9 @@
       <p>Email: <a href="mailto:kiliankraftner@gmail.com" style="color:#e3a04f; text-decoration:none;">kiliankraftner@gmail.com</a></p>
       <p>Telefon: <a href="tel:06641271974" style="color:#e3a04f; text-decoration:none;">0664 1271974</a></p>
       <p>LinkedIn: Dein Profil</p>
-      <p>GitHub: Dein GitHub</p>
+      <p><a href="https://github.com/Kiliankr-cloud" target="_blank" style="color:#e3a04f; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-weight:600;">
+        <span style="font-size:20px;">🐙</span> GitHub
+      </a></p>
     </div>
 
     <div class="contact-card">
@@ -401,7 +403,7 @@
         <textarea name="message" placeholder="Nachricht" required></textarea>
         <button type="submit">Senden</button>
       </form>
-      <div id="successPopup" style="display:none; margin-top:18px; padding:16px; border-radius:18px; border:2px solid #32c766; color:#32c766; font-weight:bold; text-align:center;">
+      <div id="successPopup" style="display:none; margin-top:18px; padding:16px; border-radius:18px; border:2px solid #32c766; color:#32c766; font-weight:bold; text-align:center; opacity:0; transform:translateY(10px) scale(0.96); transition:all 0.6s ease;">
         ✅ Message sent
       </div>
     </div>
@@ -428,10 +430,22 @@ form.addEventListener('submit', async function(e) {
 
   if(response.ok) {
     popup.style.display = 'block';
+
+    requestAnimationFrame(() => {
+      popup.style.opacity = '1';
+      popup.style.transform = 'translateY(0px) scale(1)';
+    });
+
     form.reset();
+
     setTimeout(() => {
-      popup.style.display = 'none';
-    }, 3000);
+      popup.style.opacity = '0';
+      popup.style.transform = 'translateY(-8px) scale(0.96)';
+
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 600);
+    }, 2600);
   }
 });
 </script>
