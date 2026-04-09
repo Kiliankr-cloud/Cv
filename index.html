@@ -66,18 +66,18 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 34px;
       align-items: center;
-      flex-wrap: wrap;
       justify-content: center;
     }
 
     .nav-links a {
       color: inherit;
       text-decoration: none;
-      font-size: 15px;
-      opacity: 0.85;
+      font-size: 16px;
+      opacity: 0.78;
       transition: 0.3s;
+      font-weight: 500;
     }
 
     .nav-links a:hover {
@@ -87,7 +87,7 @@
 
     .buttons {
       display: flex;
-      gap: 10px;
+      gap: 14px;
       align-items: center;
     }
 
@@ -205,17 +205,18 @@
     }
 
     .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
     .skill {
-      padding: 10px 16px;
+      padding: 11px 18px;
       border-radius: 999px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.09);
-      font-size: 14px;
+      font-size: 15px;
+      color:#d0d0d0;
     }
 
     body.light .skill {
@@ -356,18 +357,41 @@
     <div class="skill-group">
       <h3>Technisch</h3>
       <div class="skills-grid">
-        <div class="skill">Automatisierungstechnik</div>
-        <div class="skill">Elektronik</div>
-        <div class="skill">PCB Design</div>
-        <div class="skill">SMD Löten</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">TypeScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">PostgreSQL</div>
+        <div class="skill">AWS</div>
+        <div class="skill">Docker</div>
+      </div>
+
+      <h3 style="margin-top:34px;">Sprachen</h3>
+      <div class="skills-grid">
+        <div class="skill">Deutsch (Muttersprache)</div>
+        <div class="skill">Englisch (Fließend)</div>
+        <div class="skill">Französisch (Mittelstufe)</div>
       </div>
     </div>
+
     <div class="skill-group">
-      <h3>Soft Skills</h3>
+      <h3>Werkzeuge</h3>
       <div class="skills-grid">
-        <div class="skill">Teamarbeit</div>
+        <div class="skill">Git</div>
+        <div class="skill">Docker</div>
+        <div class="skill">Kubernetes</div>
+        <div class="skill">Jenkins</div>
+        <div class="skill">VS Code</div>
+        <div class="skill">Jira</div>
+      </div>
+
+      <h3 style="margin-top:34px;">Soft Skills</h3>
+      <div class="skills-grid">
+        <div class="skill">Führung</div>
         <div class="skill">Kommunikation</div>
         <div class="skill">Problemlösung</div>
+        <div class="skill">Teamzusammenarbeit</div>
+        <div class="skill">Projektmanagement</div>
       </div>
     </div>
   </div>
@@ -389,8 +413,11 @@
       <p>Email: <a href="mailto:kiliankraftner@gmail.com" style="color:#e3a04f; text-decoration:none;">kiliankraftner@gmail.com</a></p>
       <p>Telefon: <a href="tel:06641271974" style="color:#e3a04f; text-decoration:none;">0664 1271974</a></p>
       <p>LinkedIn: Dein Profil</p>
-      <p><a href="https://github.com/Kiliankr-cloud" target="_blank" style="color:#e3a04f; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-weight:600;">
-        <span style="font-size:20px;">🐙</span> GitHub
+      <p><a href="https://github.com/Kiliankr-cloud" target="_blank" style="color:#e3a04f; text-decoration:none; display:inline-flex; align-items:center; gap:10px; font-weight:600; font-size:1.05rem;">
+        <svg height="22" width="22" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8a8.01 8.01 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        GitHub
       </a></p>
     </div>
 
