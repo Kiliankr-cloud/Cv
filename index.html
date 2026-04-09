@@ -10,46 +10,48 @@
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
+      font-family: Inter, Arial, sans-serif;
     }
 
     body {
       background: #050505;
-      color: white;
-      transition: background 0.3s, color 0.3s;
+      color: #f5f5f5;
+      line-height: 1.6;
+      transition: all 0.35s ease;
     }
 
     body.light {
-      background: #f5f5f5;
+      background: #f4f4f4;
       color: #111;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
-      background: rgba(5,5,5,0.95);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+      padding: 22px 70px;
+      background: rgba(5,5,5,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     body.light nav {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.92);
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
     .logo {
-      font-size: 34px;
-      font-weight: bold;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 34px;
       align-items: center;
     }
 
@@ -58,108 +60,197 @@
       text-decoration: none;
       font-size: 18px;
       opacity: 0.85;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
+      color: #e3a04f;
       opacity: 1;
-      color: #e6a354;
     }
 
     .buttons {
       display: flex;
       gap: 12px;
+      align-items: center;
     }
 
     button {
-      background: #e6a354;
+      background: #e3a04f;
       color: black;
       border: none;
-      padding: 12px 18px;
-      border-radius: 12px;
+      padding: 14px 22px;
+      border-radius: 14px;
       cursor: pointer;
       font-size: 16px;
-      font-weight: bold;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
     }
 
     section {
       min-height: 100vh;
-      padding: 120px 10% 80px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 140px 12%;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      font-size: 80px;
-      margin-bottom: 20px;
+      font-size: 108px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 28px;
+      letter-spacing: -3px;
     }
 
     h2 {
-      font-size: 52px;
-      margin-bottom: 40px;
-      color: white;
-    }
-
-    body.light h2 {
-      color: black;
+      font-size: 64px;
+      margin-bottom: 70px;
+      font-weight: 800;
+      letter-spacing: -2px;
     }
 
     .subtitle {
-      font-size: 34px;
-      color: #e6a354;
-      margin-bottom: 20px;
+      font-size: 42px;
+      color: #d7d7d7;
+      margin-bottom: 18px;
     }
 
     .location {
-      font-size: 24px;
-      opacity: 0.8;
+      font-size: 28px;
+      opacity: 0.7;
     }
 
-    .card {
-      background: rgba(255,255,255,0.04);
-      padding: 30px;
-      border-radius: 24px;
-      margin-bottom: 30px;
+    .timeline-item,
+    .project-card,
+    .contact-card {
+      background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 34px;
+      transition: all 0.35s ease;
     }
 
-    body.light .card {
+    .timeline-item:hover,
+    .project-card:hover,
+    .contact-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(227,160,79,0.45);
+    }
+
+    body.light .timeline-item,
+    body.light .project-card,
+    body.light .contact-card {
       background: white;
       border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .timeline-item h3,
+    .project-card h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #e3a04f;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 18px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 21px;
+      opacity: 0.88;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+    }
+
+    .skill-group h3 {
+      color: #e3a04f;
+      margin-bottom: 22px;
+      font-size: 30px;
     }
 
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 14px;
     }
 
     .skill {
       padding: 14px 22px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 18px;
     }
 
     body.light .skill {
-      background: #eee;
+      background: #ececec;
       border: 1px solid #ddd;
     }
 
-    .projects {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
     }
 
-    .contact-box {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-card p {
       font-size: 24px;
-      line-height: 2;
+      margin-bottom: 18px;
     }
 
-    @media(max-width: 900px) {
+    input, textarea {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: inherit;
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    @media(max-width: 1000px) {
       nav {
         flex-direction: column;
         gap: 20px;
+        padding: 25px;
       }
 
       .nav-links {
@@ -168,11 +259,16 @@
       }
 
       h1 {
-        font-size: 54px;
+        font-size: 62px;
       }
 
       h2 {
-        font-size: 38px;
+        font-size: 42px;
+      }
+
+      .skills-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -183,15 +279,14 @@
   <div class="logo">CV</div>
 
   <div class="nav-links">
-    <a href="#home">Start</a>
-    <a href="#experience">Berufserfahrung</a>
+    <a href="#experience">Berufserfahrung / Ausbildung</a>
     <a href="#skills">Fähigkeiten</a>
     <a href="#projects">Projekte</a>
     <a href="#contact">Kontakt</a>
   </div>
 
   <div class="buttons">
-    <button onclick="toggleTheme()">🌙 / ☀️</button>
+    <button onclick="toggleTheme()">🌙</button>
     <button onclick="window.print()">PDF</button>
   </div>
 </nav>
@@ -205,54 +300,71 @@
 <section id="experience">
   <h2>Berufserfahrung / Ausbildung</h2>
 
-  <div class="card">
+  <div class="timeline-item">
     <h3>Produktionsplaner</h3>
-    <p>Siemens / MELECS EWS GmbH</p>
-    <p>März 2026 - Heute</p>
+    <p class="highlight">Siemens / MELECS EWS GmbH</p>
+    <p>Schwarzenbach, Österreich</p>
+    <ul>
+      <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
+      <li>ESD-Beauftragter</li>
+      <li>Evaluierungs-Beauftragter</li>
+      <li>Unterstützung der Fertigungsabläufe</li>
+    </ul>
   </div>
 
-  <div class="card">
+  <div class="timeline-item">
     <h3>Lehre — Mechatroniker</h3>
-    <p>Siemens / MELECS EWS GmbH</p>
+    <p class="highlight">Siemens / MELECS EWS GmbH</p>
     <p>2022 - 2026</p>
-  </div>
-
-  <div class="card">
-    <h3>HTL — Polytechnische Schule</h3>
-    <p>Wiener Neustadt</p>
-    <p>2021 - 2022</p>
+    <ul>
+      <li>Löten und Nacharbeit von SMD-Bauteilen</li>
+      <li>Leiterplattendesign und -fertigung</li>
+      <li>Automotive-Elektronikfertigung</li>
+      <li>Begleitende Berufsreifeprüfung</li>
+    </ul>
   </div>
 </section>
 
 <section id="skills">
   <h2>Fähigkeiten</h2>
 
-  <div class="skills-grid">
-    <div class="skill">Automatisierungstechnik</div>
-    <div class="skill">Elektronik</div>
-    <div class="skill">SMD Löten</div>
-    <div class="skill">Leiterplattendesign</div>
-    <div class="skill">Dokumentation</div>
-    <div class="skill">Teamarbeit</div>
-    <div class="skill">Problemlösung</div>
+  <div class="skills-layout">
+    <div class="skill-group">
+      <h3>Technisch</h3>
+      <div class="skills-grid">
+        <div class="skill">Automatisierungstechnik</div>
+        <div class="skill">Elektronik</div>
+        <div class="skill">PCB Design</div>
+        <div class="skill">SMD Löten</div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Soft Skills</h3>
+      <div class="skills-grid">
+        <div class="skill">Teamarbeit</div>
+        <div class="skill">Kommunikation</div>
+        <div class="skill">Problemlösung</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projekte</h2>
 
-  <div class="projects">
-    <div class="card">
+  <div class="projects-grid">
+    <div class="project-card">
       <h3>Elektronikfertigung</h3>
       <p>Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.</p>
     </div>
 
-    <div class="card">
+    <div class="project-card">
       <h3>PCB Design</h3>
       <p>Erstellung und Fertigung von Platinen mit EasyEDA.</p>
     </div>
 
-    <div class="card">
+    <div class="project-card">
       <h3>Automatisierung</h3>
       <p>Praxis in industrieller Automatisierungstechnik.</p>
     </div>
@@ -262,11 +374,20 @@
 <section id="contact">
   <h2>Kontakt</h2>
 
-  <div class="contact-box">
-    <p>Email: kilian@example.de</p>
-    <p>Telefon: +43 XXX XXX XXX</p>
-    <p>LinkedIn: Dein Profil</p>
-    <p>GitHub: Dein GitHub</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <p>Email: kiliankraftner@gmail.com</p>
+      <p>Telefon: +43 664/1271974</p>
+      <p>LinkedIn: Dein Profil</p>
+      <p>GitHub: Dein GitHub</p>
+    </div>
+
+    <div class="contact-card">
+      <input placeholder="Ihr Name">
+      <input placeholder="Ihre E-Mail">
+      <textarea placeholder="Nachricht"></textarea>
+      <button>Senden</button>
+    </div>
   </div>
 </section>
 
