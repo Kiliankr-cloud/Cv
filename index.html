@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kilian Kräftner CV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f4f4f4;
+      color: #222;
+      transition: 0.3s;
+    }
+    .dark {
+      background: #111;
+      color: white;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .dark .container {
+      background: #222;
+    }
+    button {
+      margin: 5px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #0070f3;
+      color: white;
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body id="body">
+
+<div class="container">
+  <h1>Kilian Kräftner</h1>
+
+  <button onclick="toggleDarkMode()">Light / Dark Mode</button>
+  <button onclick="switchLanguage()">DE / EN</button>
+  <button onclick="window.print()">Download PDF</button>
+
+  <hr>
+
+  <div id="cv-content">
+    <h2>Adresse</h2>
+    <p>Bitte Adresse einfügen</p>
+
+    <h2>Berufserfahrung / Ausbildung</h2>
+    <p>Bitte Informationen ergänzen</p>
+
+    <h2>Skills</h2>
+    <p>Skill 1, Skill 2, Skill 3</p>
+
+    <h2>Projekte</h2>
+    <p>Projekt 1, Projekt 2</p>
+
+    <h2>Kontakt</h2>
+    <p>Bitte Kontaktdaten ergänzen</p>
+  </div>
+</div>
+
+<script>
+let german = true;
+
+function toggleDarkMode() {
+  document.getElementById("body").classList.toggle("dark");
+}
+
+function switchLanguage() {
+  const content = document.getElementById("cv-content");
+
+  if (german) {
+    content.innerHTML = `
+      <h2>Address</h2>
+      <p>Please add address</p>
+
+      <h2>Work Experience / Education</h2>
+      <p>Please add information</p>
+
+      <h2>Skills</h2>
+      <p>Skill 1, Skill 2, Skill 3</p>
+
+      <h2>Projects</h2>
+      <p>Project 1, Project 2</p>
+
+      <h2>Contact</h2>
+      <p>Please add contact details</p>
+    `;
+  } else {
+    content.innerHTML = `
+      <h2>Adresse</h2>
+      <p>Bitte Adresse einfügen</p>
+
+      <h2>Berufserfahrung / Ausbildung</h2>
+      <p>Bitte Informationen ergänzen</p>
+
+      <h2>Skills</h2>
+      <p>Skill 1, Skill 2, Skill 3</p>
+
+      <h2>Projekte</h2>
+      <p>Projekt 1, Projekt 2</p>
+
+      <h2>Kontakt</h2>
+      <p>Bitte Kontaktdaten ergänzen</p>
+    `;
+  }
+
+  german = !german;
+}
+</script>
+
+</body>
+</html>
