@@ -795,6 +795,21 @@ function toggleLanguage() {
   applyLanguage(currentLanguage);
 }
 
+function syncTimelineDesktop() {
+  const isMobile = window.innerWidth <= 900;
+
+  document.querySelectorAll('.mobile-collapsible').forEach((item) => {
+    if (isMobile) {
+      item.removeAttribute('open');
+    } else {
+      item.setAttribute('open', '');
+    }
+  });
+}
+
+window.addEventListener('load', syncTimelineDesktop);
+window.addEventListener('resize', syncTimelineDesktop);
+
 const form = document.getElementById('contactForm');
 const popup = document.getElementById('successPopup');
 
