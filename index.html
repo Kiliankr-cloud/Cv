@@ -275,6 +275,8 @@
     <a href="#contact">Kontakt</a>
   </div>
   <div class="buttons">
+    <button onclick="setLanguage('de')">DE</button>
+    <button onclick="setLanguage('en')">EN</button>
     <button onclick="toggleTheme()">🌙</button>
     <button onclick="window.print()">PDF</button>
   </div>
@@ -440,6 +442,34 @@
 <script>
 function toggleTheme() {
   document.body.classList.toggle('light');
+}
+
+function setLanguage(lang) {
+  const translations = {
+    de: {
+      nav1: 'Berufserfahrung / Ausbildung',
+      nav2: 'Fähigkeiten',
+      nav3: 'Projekte',
+      nav4: 'Kontakt',
+      subtitle: 'Mechatroniker',
+      contactBtn: 'Senden'
+    },
+    en: {
+      nav1: 'Work Experience / Education',
+      nav2: 'Skills',
+      nav3: 'Projects',
+      nav4: 'Contact',
+      subtitle: 'Mechatronics Technician',
+      contactBtn: 'Send'
+    }
+  };
+
+  document.querySelectorAll('.nav-links a')[0].textContent = translations[lang].nav1;
+  document.querySelectorAll('.nav-links a')[1].textContent = translations[lang].nav2;
+  document.querySelectorAll('.nav-links a')[2].textContent = translations[lang].nav3;
+  document.querySelectorAll('.nav-links a')[3].textContent = translations[lang].nav4;
+  document.querySelector('.subtitle').textContent = translations[lang].subtitle;
+  document.querySelector('#contact button[type="submit"]').textContent = translations[lang].contactBtn;
 }
 
 const form = document.getElementById('contactForm');
