@@ -483,36 +483,12 @@
 
 <section id="home">
   <h1>Kilian Kräftner</h1>
-  <div class="subtitle">Mechatroniker</div>
+  <div class="subtitle">Production Planner</div>
   <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
 </section>
 
 <section id="experience">
   <h2>Berufserfahrung / Ausbildung</h2>
-
-  <div class="timeline-item">
-    <details class="mobile-collapsible">
-      <summary>
-        <h3>Produktionsplaner</h3>
-        <p class="highlight">MELECS EWS GmbH</p>
-        <p style="float:right; margin-top:-70px; opacity:0.7;">03.2026 - Heute</p>
-      </summary>
-      <ul>
-      <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
-      <li>ESD-Beauftragter</li>
-      <li>Evaluierungs-Beauftragter
-          <ul>
-            <li>AUVA Schulung am 23.04.2026 durchgeführt</li>
-          </ul>
-        </li>
-      <li>Unterstützung der Fertigungsabläufe
-          <ul>
-            <li>Erfahrung mit dem gesamten SMT-Prozess: Laser-Traceability, Pastendruck, Reflowlöten, SPI, AOI, THT-Bestückung bis zum Endprodukt</li>
-          </ul>
-        </li>
-    </ul>
-    </details>
-  </div>
 
   <div class="timeline-item">
     <details class="mobile-collapsible">
@@ -525,6 +501,7 @@
         <li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
         <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
         <li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>
+        <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>
         <li>Begleitende Berufsreifeprüfung (BRP)</li>
       </ul>
     </details>
@@ -583,7 +560,15 @@
     </div>
 
     <div class="skill-group">
-      <h3>Werkzeuge</h3>
+      <h3>Fertigung & Industrie</h3>
+      <div class="skills-grid">
+        <div class="skill">TIA Portal (Siemens)</div>
+        <div class="skill">FluidSim</div>
+        <div class="skill">SMT-Fertigungsprozesse</div>
+        <div class="skill">Reflow / SPI / AOI</div>
+      </div>
+
+      <h3 style="margin-top:34px;">Werkzeuge</h3>
       <div class="skills-grid">
         <div class="skill">Git</div>
         <div class="skill">Docker</div>
@@ -662,7 +647,7 @@ const translations = {
     nav2: 'Fähigkeiten',
     nav3: 'Projekte',
     nav4: 'Kontakt',
-    subtitle: 'Mechatroniker',
+    subtitle: 'Production Planner',
     location: 'Schwarzenbach, Niederösterreich, Österreich',
     experienceTitle: 'Berufserfahrung / Ausbildung',
     skillsTitle: 'Fähigkeiten',
@@ -704,7 +689,7 @@ const translations = {
     nav2: 'Skills',
     nav3: 'Projects',
     nav4: 'Contact',
-    subtitle: 'Mechatronics Engineer',
+    subtitle: 'Production Planner',
     location: 'Schwarzenbach, Lower Austria, Austria',
     experienceTitle: 'Work Experience / Education',
     skillsTitle: 'Skills',
@@ -793,8 +778,16 @@ function applyLanguage(lang) {
         </li>`;
 
   timelineLists[1].innerHTML = lang === 'de'
-    ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li><li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li><li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Begleitende Berufsreifeprüfung (BRP)</li>`
-    : `<li>Soldering and rework of SMD components (0402 to 1206, ICs, capacitors)</li><li>PCB design and manufacturing (EasyEDA Pro, PCBWay)</li><li>Specialized training in automotive electronics manufacturing</li><li>Parallel vocational diploma program</li>`;
+    ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
+       <li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li>
+       <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
+       <li>Begleitende Berufsreifeprüfung (BRP)</li>
+       <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>`
+    : `<li>Soldering and rework of SMD components (0402 to 1206, ICs, capacitors)</li>
+       <li>PCB design and manufacturing (EasyEDA Pro, PCBWay)</li>
+       <li>Specialized training in automotive electronics manufacturing</li>
+       <li>Parallel vocational diploma program</li>
+       <li>Part of the training completed in the Siemens training workshop</li>`;
 
   timelineLists[2].innerHTML = lang === 'de'
     ? `<li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li><li>Lehre mit Matura - begleitend zur Berufsausbildung</li><li>Aktuell im Abschluss</li>`
