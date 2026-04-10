@@ -141,7 +141,7 @@
     }
 
     section {
-      scroll-margin-top: 95px;
+      scroll-margin-top: 100px;
       min-height: auto;
       padding: 90px 9%;
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -255,39 +255,96 @@
       opacity: 0.88;
     }
 
-    .skills-layout,
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 34px;
     }
 
-    .skill-group h3 {
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .bento-cell {
+      border-radius: 18px;
+      padding: 20px 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.3s ease;
+    }
+
+    .bento-cell:hover {
+      border-color: rgba(227,160,79,0.4);
+    }
+
+    .bento-cell.c-wide  { grid-column: span 4; }
+    .bento-cell.c-small { grid-column: span 2; }
+    .bento-cell.c-half  { grid-column: span 3; }
+    .bento-cell.c-full  { grid-column: span 6; }
+
+    .bento-cell.t-gold {
+      background: linear-gradient(135deg, rgba(227,160,79,0.13) 0%, rgba(227,160,79,0.04) 100%);
+      border-color: rgba(227,160,79,0.28);
+    }
+    .bento-cell.t-mid  { background: rgba(255,255,255,0.05); }
+    .bento-cell.t-dark { background: rgba(255,255,255,0.025); }
+    .bento-cell.t-deep {
+      background: linear-gradient(135deg, rgba(255,255,255,0.065), rgba(255,255,255,0.02));
+      border-color: rgba(255,255,255,0.13);
+    }
+
+    .cat-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: #e3a04f;
-      margin-bottom: 18px;
-      font-size: 22px;
+      margin-bottom: 12px;
     }
 
     .skills-grid {
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .skill {
-      padding: 11px 18px;
+      padding: 9px 18px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
       font-size: 15px;
-      color:#d0d0d0;
+      color: #c8c8c8;
+      font-weight: 500;
     }
 
+    .skill.accent {
+      background: rgba(227,160,79,0.12);
+      border-color: rgba(227,160,79,0.3);
+      color: #e3c07f;
+      font-weight: 600;
+    }
+
+    body.light .bento-cell.t-gold {
+      background: linear-gradient(135deg, rgba(227,160,79,0.12), rgba(227,160,79,0.04));
+      border-color: rgba(227,160,79,0.35);
+    }
+    body.light .bento-cell.t-mid  { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.09); }
+    body.light .bento-cell.t-dark { background: rgba(0,0,0,0.025); border-color: rgba(0,0,0,0.08); }
+    body.light .bento-cell.t-deep { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.10); }
+    body.light .cat-label { color: #c47e20; }
     body.light .skill {
       background: #ebebeb;
       border: 1px solid #c8c8c8;
       color: #3f3f3f;
       font-weight: 500;
+    }
+    body.light .skill.accent {
+      background: rgba(196,126,32,0.12);
+      border-color: rgba(196,126,32,0.35);
+      color: #9a6010;
     }
 
     .projects-grid {
@@ -342,10 +399,6 @@
     @media(max-width: 900px) {
       nav {
         display: flex;
-      }
-
-      section {
-        scroll-margin-top: 220px;
       }
 
       body {
@@ -403,10 +456,16 @@
       h1 { font-size: 38px; }
       h2 { font-size: 28px; }
 
-      .skills-layout,
       .contact-grid,
       .projects-grid {
         grid-template-columns: 1fr;
+      }
+
+      .bento-cell.c-wide,
+      .bento-cell.c-small,
+      .bento-cell.c-half,
+      .bento-cell.c-full {
+        grid-column: span 6;
       }
 
       .timeline-item,
@@ -496,7 +555,7 @@
       <summary>
         <h3>Produktionsplaner</h3>
         <p class="highlight">MELECS EWS GmbH</p>
-        <p style="float:right; margin-top:-70px; opacity:0.7;">03.2026 - Heute</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">03.2026 - <span data-lang-key="today">Heute</span></p>
       </summary>
       <ul>
         <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
@@ -563,52 +622,57 @@
 </section>
 
 <section id="skills">
-  <h2>Fähigkeiten</h2>
-  <div class="skills-layout">
-    <div class="skill-group">
-      <h3>Mechanik</h3>
-      <div class="skills-grid">
-        <div class="skill">Technisches & mechanisches Verständnis</div>
-        <div class="skill">Eigenständige Reparaturen & Wartung (Supermoto, KFZ)</div>
-        <div class="skill">Fehleranalyse & systematisches Arbeiten</div>
-        <div class="skill">Hands-on Mentalität & praktisches Arbeiten</div>
-      </div>
+  <h2 data-lang-key="skillsTitle">Fähigkeiten</h2>
+  <div class="bento">
 
-      <h3 style="margin-top:34px;">Sprachen</h3>
+    <div class="bento-cell t-gold c-wide">
+      <span class="cat-label" data-lang-key="catMechanik">Mechanik & Technik</span>
       <div class="skills-grid">
-        <div class="skill">Deutsch — Muttersprache</div>
-        <div class="skill">Englisch — Fließend (B2)</div>
+        <div class="skill" data-lang-key="mech1">Technisches Verständnis</div>
+        <div class="skill" data-lang-key="mech2">Mechanisches Interesse & Leidenschaft</div>
+        <div class="skill" data-lang-key="mech3">Fehleranalyse & systematisches Arbeiten</div>
+        <div class="skill" data-lang-key="mech4">Hands-on Mentalität</div>
       </div>
     </div>
 
-    <div class="skill-group">
-      <h3>Fertigung & Industrie</h3>
+    <div class="bento-cell t-dark c-small">
+      <span class="cat-label" data-lang-key="catSprachen">Sprachen</span>
+      <div class="skills-grid">
+        <div class="skill accent" data-lang-key="lang1">Deutsch — Muttersprache</div>
+        <div class="skill" data-lang-key="lang2">Englisch — Fließend (B2)</div>
+      </div>
+    </div>
+
+    <div class="bento-cell t-deep c-half">
+      <span class="cat-label" data-lang-key="catFertigung">Fertigung & Industrie</span>
       <div class="skills-grid">
         <div class="skill">TIA Portal (Siemens)</div>
         <div class="skill">FluidSim</div>
-        <div class="skill">SMT-Fertigungsprozesse</div>
+        <div class="skill" data-lang-key="fert1">SMT-Fertigungsprozesse</div>
         <div class="skill">Reflow / SPI / AOI</div>
       </div>
+    </div>
 
-      <h3 style="margin-top:34px;">Werkzeuge</h3>
+    <div class="bento-cell t-mid c-half">
+      <span class="cat-label" data-lang-key="catTools">Software & Tools</span>
       <div class="skills-grid">
-        <div class="skill">Git</div>
-        <div class="skill">Docker</div>
-        <div class="skill">Kubernetes</div>
-        <div class="skill">Jenkins</div>
+        <div class="skill">Fusion 360</div>
         <div class="skill">VS Code</div>
-        <div class="skill">Jira</div>
-      </div>
-
-      <h3 style="margin-top:34px;">Soft Skills</h3>
-      <div class="skills-grid">
-        <div class="skill">Führung</div>
-        <div class="skill">Kommunikation</div>
-        <div class="skill">Problemlösung</div>
-        <div class="skill">Teamzusammenarbeit</div>
-        <div class="skill">Projektmanagement</div>
+        <div class="skill">Valor</div>
+        <div class="skill">SAP</div>
       </div>
     </div>
+
+    <div class="bento-cell t-dark c-full">
+      <span class="cat-label" data-lang-key="catSoft">Soft Skills</span>
+      <div class="skills-grid">
+        <div class="skill" data-lang-key="soft1">Kommunikation</div>
+        <div class="skill" data-lang-key="soft2">Problemlösung</div>
+        <div class="skill" data-lang-key="soft3">Teamarbeit</div>
+        <div class="skill" data-lang-key="soft4">Projektmanagement</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -638,9 +702,9 @@
 
     <div class="contact-card">
       <form id="contactForm">
-        <input name="name" placeholder="Ihr Name" required>
-        <input name="email" type="email" placeholder="Ihre E-Mail" required>
-        <textarea name="message" placeholder="Nachricht" required></textarea>
+        <input name="name" placeholder="Ihr Name" data-placeholder-key="placeholderName" required>
+        <input name="email" type="email" placeholder="Ihre E-Mail" data-placeholder-key="placeholderEmail" required>
+        <textarea name="message" placeholder="Nachricht" data-placeholder-key="placeholderMsg" required></textarea>
         <button type="submit">Senden</button>
       </form>
       <div id="successPopup" style="display:none; margin-top:18px; padding:16px; border-radius:18px; border:2px solid #32c766; color:#32c766; font-weight:bold; text-align:center; opacity:0; transform:translateY(10px) scale(0.96); transition:all 0.6s ease;">
@@ -677,26 +741,36 @@ const translations = {
     contactTitle: 'Kontakt',
     contactBtn: 'Senden',
     success: '✅ Nachricht gesendet',
+    today: 'Heute',
+    placeholderName: 'Ihr Name',
+    placeholderEmail: 'Ihre E-Mail',
+    placeholderMsg: 'Nachricht',
 
-    technical: 'Technisch',
-    languages: 'Sprachen',
-    tools: 'Werkzeuge',
-    softskills: 'Soft Skills',
+    catMechanik: 'Mechanik & Technik',
+    catSprachen: 'Sprachen',
+    catFertigung: 'Fertigung & Industrie',
+    catTools: 'Software & Tools',
+    catSoft: 'Soft Skills',
 
-    skillLang1: 'Deutsch (Muttersprache)',
-    skillLang2: 'Englisch (Fließend B2)',  
+    mech1: 'Technisches Verständnis',
+    mech2: 'Mechanisches Interesse & Leidenschaft',
+    mech3: 'Fehleranalyse & systematisches Arbeiten',
+    mech4: 'Hands-on Mentalität',
 
-    soft1: 'Führung',
-    soft2: 'Kommunikation',
-    soft3: 'Problemlösung',
-    soft4: 'Teamzusammenarbeit',
-    soft5: 'Projektmanagement',
+    lang1: 'Deutsch — Muttersprache',
+    lang2: 'Englisch — Fließend (B2)',
+
+    fert1: 'SMT-Fertigungsprozesse',
+
+    soft1: 'Kommunikation',
+    soft2: 'Problemlösung',
+    soft3: 'Teamarbeit',
+    soft4: 'Projektmanagement',
 
     exp1Title: 'Produktionsplaner',
     exp2Title: 'Lehre — Mechatroniker',
     exp3Title: 'Berufsreifeprüfung (Matura)',
-    exp4Title: 'Lehrabschluss — Mechatroniker-Automatisierungstechniker',
-    exp5Title: 'HTL — Polytechnische Schule (Informatik)',
+    exp4Title: 'HTL — Informatik',
 
     project1Title: 'Elektronikfertigung',
     project2Title: 'PCB Design',
@@ -719,27 +793,36 @@ const translations = {
     contactTitle: 'Contact',
     contactBtn: 'Send',
     success: '✅ Message sent',
+    today: 'Present',
+    placeholderName: 'Your Name',
+    placeholderEmail: 'Your Email',
+    placeholderMsg: 'Message',
 
-    technical: 'Technical',
-    languages: 'Languages',
-    tools: 'Tools',
-    softskills: 'Soft Skills',
+    catMechanik: 'Mechanics & Technology',
+    catSprachen: 'Languages',
+    catFertigung: 'Manufacturing & Industry',
+    catTools: 'Software & Tools',
+    catSoft: 'Soft Skills',
 
-    skillLang1: 'German (Native)',
-    skillLang2: 'English (Fluent)',
-    
+    mech1: 'Technical Understanding',
+    mech2: 'Mechanical Interest & Passion',
+    mech3: 'Fault Analysis & Systematic Work',
+    mech4: 'Hands-on Mentality',
 
-    soft1: 'Leadership',
-    soft2: 'Communication',
-    soft3: 'Problem Solving',
-    soft4: 'Team Collaboration',
-    soft5: 'Project Management',
+    lang1: 'German — Native',
+    lang2: 'English — Fluent (B2)',
+
+    fert1: 'SMT Manufacturing Processes',
+
+    soft1: 'Communication',
+    soft2: 'Problem Solving',
+    soft3: 'Teamwork',
+    soft4: 'Project Management',
 
     exp1Title: 'Production Planner',
     exp2Title: 'Apprenticeship — Mechatronics Engineer',
     exp3Title: 'Vocational Diploma (Matura)',
-    exp4Title: 'Graduation — Mechatronics Automation Engineer',
-    exp5Title: 'Technical School — Computer Science',
+    exp4Title: 'Technical School — Computer Science',
 
     project1Title: 'Electronics Manufacturing',
     project2Title: 'PCB Design',
@@ -765,29 +848,23 @@ function applyLanguage(lang) {
   document.querySelectorAll('h2')[2].textContent = translations[lang].projectsTitle;
   document.querySelectorAll('h2')[3].textContent = translations[lang].contactTitle;
 
-  document.querySelectorAll('.skill-group h3')[0].textContent = translations[lang].technical;
-  document.querySelectorAll('.skill-group h3')[1].textContent = translations[lang].languages;
-  document.querySelectorAll('.skill-group h3')[2].textContent = translations[lang].tools;
-  document.querySelectorAll('.skill-group h3')[3].textContent = translations[lang].softskills;
+  document.querySelectorAll('[data-lang-key]').forEach(el => {
+    const key = el.getAttribute('data-lang-key');
+    if (translations[lang][key]) el.textContent = translations[lang][key];
+  });
 
-  const skills = document.querySelectorAll('#skills .skill');
-  skills[7].textContent = translations[lang].skillLang1;
-  skills[8].textContent = translations[lang].skillLang2;
-  
-  skills[16].textContent = translations[lang].soft1;
-  skills[17].textContent = translations[lang].soft2;
-  skills[18].textContent = translations[lang].soft3;
-  skills[19].textContent = translations[lang].soft4;
-  skills[20].textContent = translations[lang].soft5;
+  document.querySelectorAll('[data-placeholder-key]').forEach(el => {
+    const key = el.getAttribute('data-placeholder-key');
+    if (translations[lang][key]) el.placeholder = translations[lang][key];
+  });
 
   const timelineTitles = document.querySelectorAll('.timeline-item h3');
   timelineTitles[0].textContent = translations[lang].exp1Title;
   timelineTitles[1].textContent = translations[lang].exp2Title;
   timelineTitles[2].textContent = translations[lang].exp3Title;
   timelineTitles[3].textContent = translations[lang].exp4Title;
-  timelineTitles[4].textContent = translations[lang].exp5Title;
 
-  const timelineLists = document.querySelectorAll('.timeline-item ul');
+  const timelineLists = Array.from(document.querySelectorAll('.timeline-item')).map(item => item.querySelector('ul'));
 
   timelineLists[0].innerHTML = lang === 'de'
     ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
@@ -824,12 +901,8 @@ function applyLanguage(lang) {
     : `<li>Subjects: Electrical engineering, German, English and mathematics</li><li>Apprenticeship with diploma alongside vocational training</li><li>Currently nearing completion</li>`;
 
   timelineLists[3].innerHTML = lang === 'de'
-    ? `<li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>`
-    : `<li>Specialized training in automotive electronics manufacturing</li><li>Practical experience in industrial automation and electronics</li>`;
-
-  timelineLists[4].innerHTML = lang === 'de'
-    ? `<li>Schwerpunkt Informatik (Information Technology)</li><li>Grundlagen in Informatik und Programmierung</li><li>Technische Ingenieurausbildung</li>`
-    : `<li>Focus on computer science and information technology</li><li>Fundamentals of programming and informatics</li><li>Technical engineering education</li>`;
+    ? `<li>Schwerpunkt Informatik (Information Technology)</li><li>Grundlagen in der Computertechnik und Programmierung</li>`
+    : `<li>Focus on computer science and information technology</li><li>Fundamentals of computer technology and programming</li>`;
 
   document.querySelectorAll('#projects .project-card h3')[0].textContent = translations[lang].project1Title;
   document.querySelectorAll('#projects .project-card h3')[1].textContent = translations[lang].project2Title;
@@ -860,8 +933,16 @@ function syncTimelineDesktop() {
   });
 }
 
-window.addEventListener('load', syncTimelineDesktop);
-window.addEventListener('resize', syncTimelineDesktop);
+function updateScrollMargins() {
+  const navHeight = document.querySelector('nav').offsetHeight;
+  const offset = navHeight + 4;
+  document.querySelectorAll('section').forEach(s => {
+    s.style.scrollMarginTop = offset + 'px';
+  });
+}
+
+window.addEventListener('load', () => { syncTimelineDesktop(); updateScrollMargins(); });
+window.addEventListener('resize', () => { syncTimelineDesktop(); updateScrollMargins(); });
 
 const form = document.getElementById('contactForm');
 const popup = document.getElementById('successPopup');
