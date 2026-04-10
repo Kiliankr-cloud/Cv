@@ -558,7 +558,9 @@
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display:none;">☰ Menü</button>
     <button id="langToggle" onclick="toggleLanguage()">DE / EN</button>
     <button onclick="toggleTheme()">🌙</button>
-    <button onclick="window.print()">PDF</button>
+    <button onclick="downloadPDF()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:5px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PDF
+    </button>
   </div>
 </nav>
 
@@ -808,7 +810,32 @@ const translations = {
 
     project1: 'Praktische Arbeit mit SMD-Bauteilen und Leiterplatten.',
     project2: 'Erstellung und Fertigung von Platinen mit EasyEDA.',
-    project3: 'Praxis in industrieller Automatisierungstechnik.'
+    project3: 'Praxis in industrieller Automatisierungstechnik.',
+
+    pdfProfileSummary: 'Produktionsplaner bei MELECS EWS GmbH mit Leidenschaft für Technik und Mechanik — selbst erarbeitet durch Schrauben am Motorrad und 4 Jahre Lehre als Mechatroniker. Interesse an der Schnittstelle zwischen Fertigung und betriebswirtschaftlichem Denken.',
+    pdfExp1Company: 'MELECS EWS GmbH',
+    pdfExp1Date: '03.2026 – Heute',
+    pdfExp1b1: 'Zeitverwaltung und Dokumentation von Fertigungsprozessen',
+    pdfExp1b2: 'ESD-Beauftragter & Evaluierungsbeauftragter',
+    pdfExp1b3: 'Gesamter SMT-Prozess (Laser-Traceability, SPI, AOI, THT)',
+    pdfExp2Company: 'Siemens / MELECS EWS GmbH',
+    pdfExp2Date: '2022 – 2026',
+    pdfExp2b1: 'Löten & Nacharbeit von SMD-Bauteilen',
+    pdfExp2b2: 'Fachausbildung Automotive-Elektronikfertigung',
+    pdfEdu1Title: 'Berufsreifeprüfung — Elektrotechnik',
+    pdfEdu1Sub: 'WIFI Niederösterreich · 2022–2026',
+    pdfEdu2Title: 'HTL — Informatik',
+    pdfEdu2Sub: 'HTL Wiener Neustadt · 2021–2022',
+    pdfSkillsHead: 'Fähigkeiten & Tools',
+    pdfSoftHead: 'Soft Skills',
+    pdfLangHead: 'Sprachen',
+    pdfExpHead: 'Berufserfahrung',
+    pdfEduHead: 'Ausbildung',
+    pdfProfileHead: 'Profil',
+    pdfLang1: 'Deutsch',
+    pdfLang1sub: 'Muttersprache',
+    pdfLang2: 'Englisch',
+    pdfLang2sub: 'B2'
   },
   en: {
     nav1: 'Work Experience / Education',
@@ -863,7 +890,32 @@ const translations = {
 
     project1: 'Hands-on work with SMD components and circuit boards.',
     project2: 'Design and manufacturing of PCBs with EasyEDA.',
-    project3: 'Practical experience in industrial automation.'
+    project3: 'Practical experience in industrial automation.',
+
+    pdfProfileSummary: 'Production Planner at MELECS EWS GmbH with a passion for technology and mechanics — self-taught through working on motorcycles and 4 years of apprenticeship as a mechatronics engineer. Interested in the interface between manufacturing and business thinking.',
+    pdfExp1Company: 'MELECS EWS GmbH',
+    pdfExp1Date: '03.2026 – Present',
+    pdfExp1b1: 'Time management and documentation of manufacturing processes',
+    pdfExp1b2: 'ESD Officer & Evaluation Officer',
+    pdfExp1b3: 'Full SMT process (Laser Traceability, SPI, AOI, THT)',
+    pdfExp2Company: 'Siemens / MELECS EWS GmbH',
+    pdfExp2Date: '2022 – 2026',
+    pdfExp2b1: 'Soldering & rework of SMD components',
+    pdfExp2b2: 'Specialist training in automotive electronics manufacturing',
+    pdfEdu1Title: 'Vocational Diploma — Electrical Engineering',
+    pdfEdu1Sub: 'WIFI Lower Austria · 2022–2026',
+    pdfEdu2Title: 'Technical School — Computer Science',
+    pdfEdu2Sub: 'HTL Wiener Neustadt · 2021–2022',
+    pdfSkillsHead: 'Skills & Tools',
+    pdfSoftHead: 'Soft Skills',
+    pdfLangHead: 'Languages',
+    pdfExpHead: 'Work Experience',
+    pdfEduHead: 'Education',
+    pdfProfileHead: 'Profile',
+    pdfLang1: 'German',
+    pdfLang1sub: 'Native',
+    pdfLang2: 'English',
+    pdfLang2sub: 'B2'
   }
 };
 
@@ -1031,6 +1083,116 @@ form.addEventListener('submit', async function(e) {
     console.error(error);
   }
 });
+
+function downloadPDF() {
+  const t = translations[currentLanguage];
+  const html = `
+    <div style="width:595px;min-height:842px;background:#fff;color:#111;font-family:Arial,sans-serif;font-size:11px;line-height:1.5;padding:40px 44px;box-sizing:border-box;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:10px;border-bottom:2px solid #111;margin-bottom:18px;">
+        <div>
+          <div style="font-size:22px;font-weight:800;margin:0 0 2px;letter-spacing:-0.02em;">Kilian Kräftner</div>
+          <div style="font-size:10px;color:#777;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;">Production Planner</div>
+        </div>
+        <div style="text-align:right;font-size:9px;color:#555;line-height:1.9;">
+          kiliankraftner@gmail.com &nbsp;·&nbsp; 0664 1271974<br>
+          Schwarzenbach Markt 286, 2803 Niederösterreich
+        </div>
+      </div>
+
+      <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:0 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfProfileHead}</div>
+      <div style="font-size:9.5px;color:#444;line-height:1.7;margin-bottom:14px;">${t.pdfProfileSummary}</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:0 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfExpHead}</div>
+
+          <div style="margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-weight:700;font-size:10.5px;">${t.exp1Title}</div>
+              <div style="font-size:8.5px;color:#999;">${t.pdfExp1Date}</div>
+            </div>
+            <div style="font-size:9.5px;color:#666;font-weight:600;margin-bottom:2px;">${t.pdfExp1Company}</div>
+            <ul style="padding-left:12px;margin:3px 0 0;">
+              <li style="font-size:9px;color:#444;margin-bottom:1px;">${t.pdfExp1b1}</li>
+              <li style="font-size:9px;color:#444;margin-bottom:1px;">${t.pdfExp1b2}</li>
+              <li style="font-size:9px;color:#444;margin-bottom:1px;">${t.pdfExp1b3}</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-weight:700;font-size:10.5px;">${t.exp2Title}</div>
+              <div style="font-size:8.5px;color:#999;">${t.pdfExp2Date}</div>
+            </div>
+            <div style="font-size:9.5px;color:#666;font-weight:600;margin-bottom:2px;">${t.pdfExp2Company}</div>
+            <ul style="padding-left:12px;margin:3px 0 0;">
+              <li style="font-size:9px;color:#444;margin-bottom:1px;">${t.pdfExp2b1}</li>
+              <li style="font-size:9px;color:#444;margin-bottom:1px;">${t.pdfExp2b2}</li>
+            </ul>
+          </div>
+
+          <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:12px 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfEduHead}</div>
+
+          <div style="margin-bottom:7px;">
+            <div style="font-weight:700;font-size:10px;">${t.pdfEdu1Title}</div>
+            <div style="font-size:9px;color:#888;">${t.pdfEdu1Sub}</div>
+          </div>
+          <div style="margin-bottom:7px;">
+            <div style="font-weight:700;font-size:10px;">${t.pdfEdu2Title}</div>
+            <div style="font-size:9px;color:#888;">${t.pdfEdu2Sub}</div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:0 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfSkillsHead}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;">
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">SMT-Prozesse</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">TIA Portal</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">Fusion 360</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.mech3}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">Valor</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">SAP</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.mech4}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.mech1}</span>
+          </div>
+
+          <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:0 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfSoftHead}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;">
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.soft1}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.soft3}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.soft4}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.soft2}</span>
+            <span style="border:1px solid #ddd;border-radius:3px;padding:2px 7px;font-size:8.5px;color:#555;">${t.soft5}</span>
+          </div>
+
+          <div style="font-size:8px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin:0 0 7px;padding-bottom:3px;border-bottom:1px solid #e0e0e0;">${t.pdfLangHead}</div>
+          <div style="display:flex;gap:16px;">
+            <div style="font-size:9.5px;">${t.pdfLang1} <span style="color:#999;font-size:8.5px;margin-left:4px;">${t.pdfLang1sub}</span></div>
+            <div style="font-size:9.5px;">${t.pdfLang2} <span style="color:#999;font-size:8.5px;margin-left:4px;">${t.pdfLang2sub}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;';
+  container.innerHTML = html;
+  document.body.appendChild(container);
+
+  const opt = {
+    margin: 0,
+    filename: 'Kilian_Kraeftner_CV.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'px', format: [595, 842], orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(container.firstElementChild).save().then(() => {
+    document.body.removeChild(container);
+  });
+}
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
