@@ -490,6 +490,31 @@
 <section id="experience">
   <h2>Berufserfahrung / Ausbildung</h2>
 
+  <!-- Production Planner (NEU wieder hinzugefügt) -->
+  <div class="timeline-item">
+    <details class="mobile-collapsible">
+      <summary>
+        <h3>Produktionsplaner</h3>
+        <p class="highlight">MELECS EWS GmbH</p>
+        <p style="float:right; margin-top:-70px; opacity:0.7;">03.2026 - Heute</p>
+      </summary>
+      <ul>
+        <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
+        <li>ESD-Beauftragter</li>
+        <li>Evaluierungs-Beauftragter
+          <ul>
+            <li>AUVA Schulung am 23.04.2026 durchgeführt</li>
+          </ul>
+        </li>
+        <li>Unterstützung der Fertigungsabläufe
+          <ul>
+            <li>Erfahrung mit dem gesamten SMT-Prozess: Laser-Traceability, Pastendruck, Reflowlöten, SPI, AOI, THT-Bestückung bis zum Endprodukt</li>
+          </ul>
+        </li>
+      </ul>
+    </details>
+  </div>
+
   <div class="timeline-item">
     <details class="mobile-collapsible">
       <summary>
@@ -768,14 +793,22 @@ function applyLanguage(lang) {
   const timelineLists = document.querySelectorAll('.timeline-item ul');
 
   timelineLists[0].innerHTML = lang === 'de'
-    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li><li>ESD-Beauftragter</li><li>Evaluierungs-Beauftragter
-        <ul><li>AUVA Schulung am 23.04.2026 durchgeführt</li></ul>
-        </li><li>Unterstützung der Fertigungsabläufe</li>`
-    : `<li>Time management and documentation of manufacturing processes</li><li>ESD officer</li><li>Evaluation supervisor
-        <ul><li>Required AUVA training completed on 23.04.2026</li></ul>
-        </li><li>Support of production workflows
-        <ul><li>Experience with the full SMT process: laser traceability, solder paste printing, reflow soldering, SPI, AOI, THT assembly to final product</li></ul>
-        </li>`;
+    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
+       <li>ESD-Beauftragter</li>
+       <li>Evaluierungs-Beauftragter
+         <ul><li>AUVA Schulung am 23.04.2026 durchgeführt</li></ul>
+       </li>
+       <li>Unterstützung der Fertigungsabläufe
+         <ul><li>Erfahrung mit dem gesamten SMT-Prozess: Laser-Traceability, Pastendruck, Reflowlöten, SPI, AOI, THT-Bestückung bis zum Endprodukt</li></ul>
+       </li>`
+    : `<li>Time management and documentation of manufacturing processes</li>
+       <li>ESD officer</li>
+       <li>Evaluation supervisor
+         <ul><li>Required AUVA training completed on 23.04.2026</li></ul>
+       </li>
+       <li>Support of production workflows
+         <ul><li>Experience with the full SMT process: laser traceability, solder paste printing, reflow soldering, SPI, AOI, THT assembly to final product</li></ul>
+       </li>`;
 
   timelineLists[1].innerHTML = lang === 'de'
     ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
