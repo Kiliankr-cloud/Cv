@@ -571,7 +571,9 @@
 
       <h3 style="margin-top:34px;">Sprachen</h3>
       <div class="skills-grid">
-        <div class="skill">Deutsch (Muttersprache)</div>
+        <div class="skill">Deutsch — Muttersprache</div>
+        <div class="skill">Englisch — Fließend (B2)</div>
+      </div>
         <div class="skill">Englisch (Fließend)</div>
         <div class="skill">Französisch (Mittelstufe)</div>
       </div>
@@ -672,8 +674,7 @@ const translations = {
     softskills: 'Soft Skills',
 
     skillLang1: 'Deutsch (Muttersprache)',
-    skillLang2: 'Englisch (Fließend)',
-    skillLang3: 'Französisch (Mittelstufe)',
+    skillLang2: 'Englisch (Fließend B2)',  
 
     soft1: 'Führung',
     soft2: 'Kommunikation',
@@ -716,7 +717,7 @@ const translations = {
 
     skillLang1: 'German (Native)',
     skillLang2: 'English (Fluent)',
-    skillLang3: 'French (Intermediate)',
+    
 
     soft1: 'Leadership',
     soft2: 'Communication',
@@ -762,7 +763,7 @@ function applyLanguage(lang) {
   const skills = document.querySelectorAll('#skills .skill');
   skills[7].textContent = translations[lang].skillLang1;
   skills[8].textContent = translations[lang].skillLang2;
-  skills[9].textContent = translations[lang].skillLang3;
+  
   skills[16].textContent = translations[lang].soft1;
   skills[17].textContent = translations[lang].soft2;
   skills[18].textContent = translations[lang].soft3;
