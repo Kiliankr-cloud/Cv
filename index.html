@@ -485,7 +485,11 @@
       <ul>
       <li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li>
       <li>ESD-Beauftragter</li>
-      <li>Evaluierungs-Beauftragter</li>
+      <li>Evaluierungs-Beauftragter
+          <ul>
+            <li>Benötigte AUVA Schulung am 23.04.2026 durchgeführt</li>
+          </ul>
+        </li>
       <li>Unterstützung der Fertigungsabläufe</li>
     </ul>
     </details>
@@ -777,8 +781,12 @@ function applyLanguage(lang) {
   const timelineLists = document.querySelectorAll('.timeline-item ul');
 
   timelineLists[0].innerHTML = lang === 'de'
-    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li><li>ESD-Beauftragter</li><li>Evaluierungs-Beauftragter</li><li>Unterstützung der Fertigungsabläufe</li>`
-    : `<li>Time management and documentation of manufacturing processes</li><li>ESD officer</li><li>Evaluation supervisor</li><li>Support of production workflows</li>`;
+    ? `<li>Zeitverwaltung und Dokumentation von Fertigungsprozessen</li><li>ESD-Beauftragter</li><li>Evaluierungs-Beauftragter
+        <ul><li>Benötigte AUVA Schulung am 23.04.2026 durchgeführt</li></ul>
+        </li><li>Unterstützung der Fertigungsabläufe</li>`
+    : `<li>Time management and documentation of manufacturing processes</li><li>ESD officer</li><li>Evaluation supervisor
+        <ul><li>Required AUVA training completed on 23.04.2026</li></ul>
+        </li><li>Support of production workflows</li>`;
 
   timelineLists[1].innerHTML = lang === 'de'
     ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li><li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li><li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li><li>Begleitende Berufsreifeprüfung (BRP)</li>`
