@@ -187,6 +187,28 @@
       opacity: 0.7;
     }
 
+    .profile-text {
+      margin-top: 28px;
+      max-width: 960px;
+    }
+
+    .profile-text p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 14px;
+    }
+
+    .profile-text p:last-child { margin-bottom: 0; }
+
+    .profile-text strong {
+      color: #f0f0f0;
+      font-weight: 600;
+    }
+
+    body.light .profile-text p { color: rgba(0,0,0,0.65); }
+    body.light .profile-text strong { color: #111; }
+
     .timeline-item details {
         width: 100%;
       }
@@ -544,6 +566,10 @@
   <h1>Kilian Kräftner</h1>
   <div class="subtitle">Production Planner</div>
   <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
+  <div class="profile-text" id="profileText">
+    <p>Ich bin Produktionsplaner bei <strong>MELECS EWS GmbH</strong> — und jemand, dem Technik schon immer Freude gemacht hat. Was mich antreibt, habe ich größtenteils selbst erarbeitet: <strong>Mechanik durch's Schrauben am Motorrad</strong>, Elektronik durch die Lehre. Was als Hobby begann, wurde zum Berufsbild — als <strong>Mechatroniker</strong> war Mechanik fester Bestandteil meiner Ausbildung, und dieses Hands-on-Denken nehme ich bis heute in jeden Arbeitsalltag mit.</p>
+    <p>Aktuell schließe ich meine <strong>Berufsreifeprüfung mit Schwerpunkt Elektrotechnik</strong> ab und bekomme als Produktionsplaner zunehmend Einblick, wie eng Fertigung und Wirtschaftlichkeit zusammenhängen — ein Thema, das mich wirklich interessiert. Die Zeiten, die wir erfassen, sind die <strong>Kosten, mit denen das Unternehmen kalkuliert</strong>. Was als nächstes produziert wird, was dafür gebraucht wird: genau diese Schnittstelle zwischen <strong>Fertigung und betriebswirtschaftlichem Denken</strong> will ich langfristig besser verstehen und aktiv mitgestalten.</p>
+  </div>
 </section>
 
 <section id="experience">
@@ -585,8 +611,8 @@
         <li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
         <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
         <li>Praktische Erfahrung in industrieller Automatisierung und Elektronik</li>
-        <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>
         <li>Begleitende Berufsreifeprüfung (BRP)</li>
+        <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>
       </ul>
     </details>
   </div>
@@ -670,6 +696,7 @@
         <div class="skill" data-lang-key="soft2">Problemlösung</div>
         <div class="skill" data-lang-key="soft3">Teamarbeit</div>
         <div class="skill" data-lang-key="soft4">Projektmanagement</div>
+        <div class="skill" data-lang-key="soft5">Freude am Präsentieren</div>
       </div>
     </div>
 
@@ -742,6 +769,8 @@ const translations = {
     contactBtn: 'Senden',
     success: '✅ Nachricht gesendet',
     today: 'Heute',
+    profileP1: 'Ich bin Produktionsplaner bei <strong>MELECS EWS GmbH</strong> — und jemand, dem Technik schon immer Freude gemacht hat. Was mich antreibt, habe ich größtenteils selbst erarbeitet: <strong>Mechanik durch\'s Schrauben am Motorrad</strong>, Elektronik durch die Lehre. Was als Hobby begann, wurde zum Berufsbild — als <strong>Mechatroniker</strong> war Mechanik fester Bestandteil meiner Ausbildung, und dieses Hands-on-Denken nehme ich bis heute in jeden Arbeitsalltag mit.',
+    profileP2: 'Aktuell schließe ich meine <strong>Berufsreifeprüfung mit Schwerpunkt Elektrotechnik</strong> ab und bekomme als Produktionsplaner zunehmend Einblick, wie eng Fertigung und Wirtschaftlichkeit zusammenhängen — ein Thema, das mich wirklich interessiert. Die Zeiten, die wir erfassen, sind die <strong>Kosten, mit denen das Unternehmen kalkuliert</strong>. Was als nächstes produziert wird, was dafür gebraucht wird: genau diese Schnittstelle zwischen <strong>Fertigung und betriebswirtschaftlichem Denken</strong> will ich langfristig besser verstehen und aktiv mitgestalten.',
     placeholderName: 'Ihr Name',
     placeholderEmail: 'Ihre E-Mail',
     placeholderMsg: 'Nachricht',
@@ -766,6 +795,7 @@ const translations = {
     soft2: 'Problemlösung',
     soft3: 'Teamarbeit',
     soft4: 'Projektmanagement',
+    soft5: 'Freude am Präsentieren',
 
     exp1Title: 'Produktionsplaner',
     exp2Title: 'Lehre — Mechatroniker',
@@ -794,6 +824,8 @@ const translations = {
     contactBtn: 'Send',
     success: '✅ Message sent',
     today: 'Present',
+    profileP1: 'I am a Production Planner at <strong>MELECS EWS GmbH</strong> — and someone who has always had a passion for technology. Most of what drives me I taught myself: <strong>mechanics through working on my motorcycle</strong>, electronics through my apprenticeship. What started as a hobby became my profession — as a <strong>Mechatronics Engineer</strong>, mechanics was a core part of my training, and that hands-on mindset stays with me every day.',
+    profileP2: 'I am currently completing my <strong>vocational diploma with a focus on electrical engineering</strong> and gaining more insight into how closely manufacturing and business economics are connected — a topic that genuinely interests me. The times we record are the <strong>costs the company calculates with</strong>. What gets produced next, what resources are needed: the interface between <strong>manufacturing and business thinking</strong> is exactly what I want to understand more deeply and actively shape.',
     placeholderName: 'Your Name',
     placeholderEmail: 'Your Email',
     placeholderMsg: 'Message',
@@ -818,6 +850,7 @@ const translations = {
     soft2: 'Problem Solving',
     soft3: 'Teamwork',
     soft4: 'Project Management',
+    soft5: 'Enjoys Presenting',
 
     exp1Title: 'Production Planner',
     exp2Title: 'Apprenticeship — Mechatronics Engineer',
@@ -858,6 +891,12 @@ function applyLanguage(lang) {
     if (translations[lang][key]) el.placeholder = translations[lang][key];
   });
 
+  const profile = document.getElementById('profileText');
+  if (profile) {
+    profile.innerHTML =
+      `<p>${translations[lang].profileP1}</p><p>${translations[lang].profileP2}</p>`;
+  }
+
   const timelineTitles = document.querySelectorAll('.timeline-item h3');
   timelineTitles[0].textContent = translations[lang].exp1Title;
   timelineTitles[1].textContent = translations[lang].exp2Title;
@@ -888,13 +927,13 @@ function applyLanguage(lang) {
     ? `<li>Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)</li>
        <li>Leiterplattendesign und -fertigung (EasyEDA Pro, PCBWay)</li>
        <li>Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung</li>
-       <li>Begleitende Berufsreifeprüfung (BRP)</li>
-       <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>`
+       <li>Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt</li>
+       <li>Begleitende Berufsreifeprüfung (BRP)</li>`
     : `<li>Soldering and rework of SMD components (0402 to 1206, ICs, capacitors)</li>
        <li>PCB design and manufacturing (EasyEDA Pro, PCBWay)</li>
        <li>Specialized training in automotive electronics manufacturing</li>
-       <li>Parallel vocational diploma program</li>
-       <li>Part of the training completed in the Siemens training workshop</li>`;
+       <li>Part of the training completed in the Siemens training workshop</li>
+       <li>Parallel vocational diploma program</li>`;
 
   timelineLists[2].innerHTML = lang === 'de'
     ? `<li>Fächer: Elektrotechnik, Deutsch, Englisch und Mathematik</li><li>Lehre mit Matura - begleitend zur Berufsausbildung</li><li>Aktuell im Abschluss</li>`
