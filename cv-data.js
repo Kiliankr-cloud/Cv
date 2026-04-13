@@ -58,15 +58,15 @@ export const cvData = {
           "Löten und Nacharbeit von SMD-Bauteilen (0402 bis 1206, ICs, Elkos)",
           "Fachausbildung mit Schwerpunkt Automotive-Elektronikfertigung",
           "Praktische Erfahrung in industrieller Automatisierung und Elektronik",
-          "Begleitende Berufsreifeprüfung (BRP)",
           "Ausbildung teilweise in der Siemens Lehrwerkstätte durchgeführt",
+          "Begleitende Berufsreifeprüfung (BRP)",
         ],
         en: [
           "Soldering and rework of SMD components (0402 to 1206, ICs, electrolytic capacitors)",
           "Specialist training with a focus on automotive electronics manufacturing",
           "Practical experience in industrial automation and electronics",
-          "Vocational matriculation exam (BRP) completed in parallel",
           "Part of the training carried out at the Siemens training workshop",
+          "Vocational matriculation exam (BRP) completed in parallel",
         ],
       },
     },
@@ -122,6 +122,8 @@ export const cvData = {
         de: "Mechanik & Technik",
         en: "Mechanics & Technology",
       },
+      tone: "t-gold",
+      span: "c-wide",
       items: [
         { de: "Technisches Verständnis", en: "Technical Understanding" },
         { de: "Mechanisches Interesse & Leidenschaft", en: "Mechanical Interest & Passion" },
@@ -134,6 +136,8 @@ export const cvData = {
         de: "Fertigung & Industrie",
         en: "Manufacturing & Industry",
       },
+      tone: "t-deep",
+      span: "c-half",
       items: [
         "TIA Portal (Siemens)",
         "FluidSim",
@@ -146,6 +150,8 @@ export const cvData = {
         de: "Software & Tools",
         en: "Software & Tools",
       },
+      tone: "t-mid",
+      span: "c-half",
       items: [
         "Fusion 360",
         "VS Code",
@@ -158,6 +164,8 @@ export const cvData = {
         de: "Soft Skills",
         en: "Soft Skills",
       },
+      tone: "t-dark",
+      span: "c-full",
       items: [
         { de: "Kommunikation", en: "Communication" },
         { de: "Problemlösung", en: "Problem Solving" },
