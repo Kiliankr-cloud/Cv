@@ -244,8 +244,7 @@ function downloadPDF() {
     </div>`;
 
   const container = document.createElement('div');
-  const scrollY = window.scrollY || document.documentElement.scrollTop;
-  container.style.cssText = `position:absolute;left:-9999px;top:${scrollY}px;`;
+  container.style.cssText = 'position:absolute;left:-9999px;top:0;';
   container.innerHTML = html;
   document.body.appendChild(container);
 
@@ -253,7 +252,7 @@ function downloadPDF() {
     margin: 0,
     filename: 'Kilian_Kraeftner_CV.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
     jsPDF: { unit: 'px', format: [595, 842], orientation: 'portrait' }
   }).from(container.firstElementChild).save().then(() => {
     document.body.removeChild(container);
