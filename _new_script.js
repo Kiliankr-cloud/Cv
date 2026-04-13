@@ -244,7 +244,8 @@ function downloadPDF() {
     </div>`;
 
   const container = document.createElement('div');
-  container.style.cssText = 'position:fixed;left:-9999px;top:0;';
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  container.style.cssText = `position:absolute;left:-9999px;top:${scrollY}px;`;
   container.innerHTML = html;
   document.body.appendChild(container);
 
