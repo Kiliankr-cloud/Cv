@@ -122,6 +122,7 @@ function applyLanguage(lang) {
 
   document.getElementById('timelineContainer').innerHTML = renderTimeline(lang);
   document.getElementById('bentoContainer').innerHTML    = renderBento(lang);
+  initScrollAnimations();
 
   document.querySelectorAll('[data-placeholder-key]').forEach(el => {
     const key = el.getAttribute('data-placeholder-key');
@@ -293,8 +294,43 @@ form.addEventListener('submit', async function(e) {
   }
 });
 
+// ── Scroll animations ─────────────────────────────────────────────────────────
+function initScrollAnimations() {
+  const targets = document.querySelectorAll('.timeline-item, .bento-cell, .project-card, .contact-card');
+  targets.forEach(el => el.classList.add('fade-up'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  targets.forEach(el => observer.observe(el));
+}
+
+// ── Active nav on scroll ──────────────────────────────────────────────────────
+function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
-window.addEventListener('load', () => { applyLanguage('de'); });
+window.addEventListener('load', () => {
+  applyLanguage('de');
+  initScrollAnimations();
+  initActiveNav();
+});
 window.addEventListener('resize', () => { syncTimelineDesktop(); updateScrollMargins(); });
 
 // Expose to HTML onclick handlers

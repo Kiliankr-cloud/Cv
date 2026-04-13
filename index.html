@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kilian Kräftner CV</title>
+  <title>Kilian Kräftner — Production Planner</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a1a1a'/><rect x='1.5' y='1.5' width='29' height='29' rx='5' fill='none' stroke='%23e3a04f' stroke-width='2'/><text x='16' y='22' font-family='Arial' font-size='13' font-weight='800' fill='%23e3a04f' text-anchor='middle'>KK</text></svg>">
+
+  <!-- SEO & Social Preview -->
+  <meta name="description" content="CV von Kilian Kräftner — Produktionsplaner bei MELECS EWS GmbH. Mechatroniker mit Leidenschaft für Technik, Fertigung und Elektronik.">
+  <meta property="og:title" content="Kilian Kräftner — Production Planner">
+  <meta property="og:description" content="Produktionsplaner bei MELECS EWS GmbH. Mechatroniker mit Erfahrung in SMT-Fertigung, Automatisierung und Elektronik.">
+  <meta property="og:image" content="https://cv-kraeftner-j1e2m337u-kiliankraftner-2338s-projects.vercel.app/portrait.jpg">
+  <meta property="og:url" content="https://cv-kraeftner-j1e2m337u-kiliankraftner-2338s-projects.vercel.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kilian Kräftner — Production Planner">
+  <meta name="twitter:image" content="https://cv-kraeftner-j1e2m337u-kiliankraftner-2338s-projects.vercel.app/portrait.jpg">
   <style>
     * {
       margin: 0;
@@ -151,6 +165,51 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero layout */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      grid-template-rows: auto auto;
+      column-gap: 48px;
+      row-gap: 28px;
+      max-width: 900px;
+    }
+    .hero-name  { grid-column: 1; grid-row: 1; }
+    .hero-img   { grid-column: 2; grid-row: 1; align-self: start; }
+    .profile-text {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      max-width: none !important;
+    }
+    .hero-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid #e3a04f;
+      box-shadow: 0 0 40px rgba(227,160,79,0.18);
+    }
+
+    /* Scroll animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Active nav link */
+    .nav-links a.active {
+      color: #e3a04f;
+      opacity: 1;
+      border-bottom: 2px solid #e3a04f;
+      padding-bottom: 2px;
     }
 
     h1 {
@@ -478,6 +537,16 @@
       h1 { font-size: 38px; }
       h2 { font-size: 28px; }
 
+      .hero-layout {
+        grid-template-columns: 1fr 100px;
+        column-gap: 20px;
+        row-gap: 20px;
+      }
+      .hero-img {
+        width: 100px;
+        height: 100px;
+      }
+
       .contact-grid,
       .projects-grid {
         grid-template-columns: 1fr;
@@ -565,12 +634,17 @@
 </nav>
 
 <section id="home">
-  <h1>Kilian Kräftner</h1>
-  <div class="subtitle">Production Planner</div>
-  <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
-  <div class="profile-text" id="profileText">
-    <p>Ich bin Produktionsplaner bei <strong>MELECS EWS GmbH</strong> — und jemand, dem Technik schon immer Freude gemacht hat. Was mich antreibt, habe ich größtenteils selbst erarbeitet: <strong>Mechanik durch's Schrauben am Motorrad</strong>, Elektronik durch die Lehre. Was als Hobby begann, wurde zum Berufsbild — als <strong>Mechatroniker</strong> war Mechanik fester Bestandteil meiner Ausbildung, und dieses Hands-on-Denken nehme ich bis heute in jeden Arbeitsalltag mit.</p>
-    <p>Aktuell schließe ich meine <strong>Berufsreifeprüfung mit Schwerpunkt Elektrotechnik</strong> ab und bekomme als Produktionsplaner zunehmend Einblick, wie eng Fertigung und Wirtschaftlichkeit zusammenhängen — ein Thema, das mich wirklich interessiert. Die Zeiten, die wir erfassen, sind die <strong>Kosten, mit denen das Unternehmen kalkuliert</strong>. Was als nächstes produziert wird, was dafür gebraucht wird: genau diese Schnittstelle zwischen <strong>Fertigung und betriebswirtschaftlichem Denken</strong> will ich langfristig besser verstehen und aktiv mitgestalten.</p>
+  <div class="hero-layout">
+    <div class="hero-name">
+      <h1>Kilian Kräftner</h1>
+      <div class="subtitle">Production Planner</div>
+      <div class="location">Schwarzenbach, Niederösterreich, Österreich</div>
+    </div>
+    <img src="/portrait.jpg" alt="Kilian Kräftner" class="hero-img">
+    <div class="profile-text" id="profileText">
+      <p>Ich bin Produktionsplaner bei <strong>MELECS EWS GmbH</strong> — und jemand, dem Technik schon immer Freude gemacht hat. Was mich antreibt, habe ich größtenteils selbst erarbeitet: <strong>Mechanik durch's Schrauben am Motorrad</strong>, Elektronik durch die Lehre. Was als Hobby begann, wurde zum Berufsbild — als <strong>Mechatroniker</strong> war Mechanik fester Bestandteil meiner Ausbildung, und dieses Hands-on-Denken nehme ich bis heute in jeden Arbeitsalltag mit.</p>
+      <p>Aktuell schließe ich meine <strong>Berufsreifeprüfung mit Schwerpunkt Elektrotechnik</strong> ab und bekomme als Produktionsplaner zunehmend Einblick, wie eng Fertigung und Wirtschaftlichkeit zusammenhängen — ein Thema, das mich wirklich interessiert. Die Zeiten, die wir erfassen, sind die <strong>Kosten, mit denen das Unternehmen kalkuliert</strong>. Was als nächstes produziert wird, was dafür gebraucht wird: genau diese Schnittstelle zwischen <strong>Fertigung und betriebswirtschaftlichem Denken</strong> will ich langfristig besser verstehen und aktiv mitgestalten.</p>
+    </div>
   </div>
 </section>
 
