@@ -60,6 +60,11 @@ function renderTimeline(lang) {
   ];
   return items.map(item => {
     const bullets = (item.bullets && (item.bullets[lang] || item.bullets.de)) || [];
+    const renderBullet = b => {
+      if (typeof b === 'string') return `<li>${b}</li>`;
+      const subs = b.sub ? `<ul>${b.sub.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+      return `<li>${b.text}${subs}</li>`;
+    };
     return `
       <div class="timeline-item">
         <details class="mobile-collapsible">
@@ -68,7 +73,7 @@ function renderTimeline(lang) {
             <p class="highlight">${item.sub}</p>
             <p style="float:right; margin-top:-70px; opacity:0.7;">${t(item.period, lang)}</p>
           </summary>
-          <ul>${bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+          <ul>${bullets.map(renderBullet).join('')}</ul>
         </details>
       </div>`;
   }).join('');

@@ -35,14 +35,14 @@ export const cvData = {
         de: [
           "Zeitverwaltung und Dokumentation von Fertigungsprozessen",
           "ESD-Beauftragter",
-          "Evaluierungs-Beauftragter",
-          "Erfahrung mit dem gesamten SMT-Prozess: Laser-Traceability, Pastendruck, Reflowlöten, SPI, AOI, THT-Bestückung bis zum Endprodukt",
+          { text: "Evaluierungs-Beauftragter", sub: ["AUVA Schulung am 23.04.2026 durchgeführt"] },
+          { text: "Unterstützung der Fertigungsabläufe", sub: ["Erfahrung mit dem gesamten SMT-Prozess: Laser-Traceability, Pastendruck, Reflowlöten, SPI, AOI, THT-Bestückung bis zum Endprodukt"] },
         ],
         en: [
           "Time management and documentation of manufacturing processes",
           "ESD Officer",
-          "Evaluation Officer",
-          "Experience with the full SMT process: laser traceability, screen printing, reflow soldering, SPI, AOI, THT assembly through to finished product",
+          { text: "Evaluation Officer", sub: ["Required AUVA training completed on 23.04.2026"] },
+          { text: "Support of production workflows", sub: ["Experience with the full SMT process: laser traceability, screen printing, reflow soldering, SPI, AOI, THT assembly through to finished product"] },
         ],
       },
     },
